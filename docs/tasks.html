@@ -16,51 +16,405 @@
   </head>
 
   <body>
+    <nav class="sidebar">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="concept.html">Concept</a></li>
       <li><a class="active" href="tasks.html">Tasks</a></li>
       <li><a href="reference.html">Reference</a></li>
     </ul>
+    </nav>
 
     <div style="margin-left:130px;padding:1px 16px;height:1000px;">
-      <h2>Full-height Vertical Navbar</h2>
-      <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-      <p>Notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
+      <h1>Task Documentation</h1>
+
+      <!-- tasks for devs -->
+      <div>
+        <h1>Task Topics for Developers:</h1>
+
+        <!-- setting up myfavalbums -->
+        <div>
+          <h2>Setting up the MyFavoriteAlbums Tech Stack:</h2>
+
+          <!-- cloning the repo -->
+          <div>
+            <h3>Cloning the MyFavoriteAlbums Repository:</h3>
+            <ol>
+              <li>
+                Access the RStudio terminal by clicking on the Terminal tab at the top of the bottom window.
+              </li>
+              <!-- insert picture -->
+              <li>
+                In your terminal, verify that you are currently located in your Desktop directory. 
+                Your directory path should look something like this:
+                <!-- code snippet -->
+                 [device-name]:Desktop [user]$
+              </li>
+              <li>
+                If you are not on your desktop, change your directory entering the following command into your terminal: 
+                <!-- code snippet -->
+                cd Desktop
+              </li>
+              <li>
+                Clone the MyFavoriteAlbums repository onto your device. 
+                <!-- code snippet -->
+                git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+              </li>
+              <li>
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the ls command. 
+                You should see the repository name, MyFavoriteAlbums, output in the list of your desktop contents if it has been cloned correctly.
+                <!-- code snippet -->
+                 ls Desktop
+              </li>
+              <li>
+                To download MyFavoriteAlbums’ required packages run the following command in your RStudio console:
+                <!-- code snippet -->
+                install.packages(c("shiny", "dplyr", "tidyverse"))
+              </li>
+            </ol>
+          </div>
+
+          <!-- running myfavalbums -->
+          <div>
+            <h3>Running MyFavoriteAlbums:</h3>
+            <ol>
+              <li>
+                Within the right Files subwindow, navigate to the app.R file.
+              </li>
+              <!-- insert picture -->
+              <li>
+                In the main coding window, click on the Run App button in this window’s navigation bar 
+                to open a local version of the MyFavoriteAlbums web application.
+              </li>
+              <!-- insert picture -->
+            </ol>
+          </div>
+        </div>
+
+        <!-- adding new functions (tutorial) -->
+        <div>
+          <h2>Adding New Functions to MyFavoriteAlbums:</h2>
+          <p>
+            To add new functionality to MyFavoriteAlbums, you must have a basic understanding of R. 
+            Make sure you are in the MyFavoriteAlbums directory in RStudio.
+          </p>
+
+          <!-- tutorial -->
+          <ol>
+            <li>
+
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- tasks for music lovers -->
+      <div>
+        <h1>Task Topics for Data-Curious Music Lovers:</h1>
+
+        <!-- setting up myfavalbums -->
+        <div>
+          <h2>Setting up MyFavoriteAlbums:</h2>
+          <p>
+            Setting up MyFavoriteAlbums on your computer requires you to have R and RStudio downloaded with the appropriate packages, 
+            as well as a shinyapps.io account. 
+            You will also need to create a CSV file that contains your album rating information.
+          </p>
+
+          <!-- downloading r -->
+          <div>
+            <h3>Downloading R and RStudio:</h3>
+            <p>
+              To download R and RStudio follow the <a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop Downloading Instructions</a> 
+              and download the versions of R and RStudio that are compatible with your computer.
+            </p>
+          </div>
+
+          <!-- creating shiny account -->
+          <div>
+            <h3>Creating a Shinyapps.io account:</h3>
+            <p>
+              MyFavoriteAlbums requires that you have a shinyapps.io account in order to deploy the application with your own personalized album rating data. 
+              Follow the <a href="https://login.shinyapps.io/register?product=shinyapps&redirect=%2Foauth%2Fauthorize%3Fclient_id%3Drstudio-shinyapps%26redirect_uri%3Dhttps%253A%252F%252Fwww.shinyapps.io%252Fauth%252Foauth%252Ftoken%26response_type%3Dcode%26scopes%3D%252A%26show_auth%3D0" target="_blank">shiny sign up instructions</a> 
+              to create your account and your deployment URL.
+            </p>
+          </div>
+
+          <!-- downloading codebase -->
+          <div>
+            <h3>Downloading the MyFavoriteAlbums CodeBase:</h3>
+            <ol>
+              <li>
+                Access the RStudio terminal by clicking on the Terminal tab at the top of the bottom window.
+              </li>
+              <!-- insert image -->
+              <li>
+                In your terminal, verify that you are currently located in your Desktop directory. 
+                Your directory path should look something like this if you are:
+                <!-- code snippet -->
+                 [device-name]:Desktop [user]$
+              </li>
+              <li>
+                If you are not on your desktop, change your directory entering the change directory command into your terminal: 
+                <!-- code snippet -->
+                 cd Desktop
+              </li>
+              <li>
+                Clone the MyFavoriteAlbums repository onto your device by entering the following command:
+                <!-- code snippet -->
+                 git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+              </li>
+              <li>
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the list command (ls). 
+                You should see the repository name, MyFavoriteAlbums, output in the list of your desktop contents if it has been cloned correctly. 
+                <!-- code snippet -->
+                 ls Desktop
+              </li>
+            </ol>
+          </div>
+
+          <!-- downloading packages -->
+          <div>
+            <h3>Downloading the Required Packages for MyFavoriteAlbums:</h3>
+            <p>
+              MyFavoriteAlbums utilizes three R packages: shiny, dplyr, and ggplot2. 
+              These packages are used to create the applications layouts and perform analysis on inputted music data.
+            </p>
+
+            <ol>
+              <li>
+                Within RStudio, open your console by clicking on the console tab.
+              </li>
+              <li>
+                To download shiny run: install.packages("shiny") 
+              </li>
+              <li>
+                To download dplyr run: install.packages("dplyr") 
+              </li>
+              <li>
+                To download ggplot2 run: install.packages("tidyverse")
+              </li>
+            </ol>
+          </div>
+
+          <!-- creating csv file -->
+          <div>
+            <h3>Creating a CSV File with Your Album Information:</h3>
+            <p>
+              MyFavoriteAlbums requires you album information to be in CSV (comma separated values) format. 
+              This can be done using Google Sheets or Microsoft Excel. 
+              For these instructions, we will be using Google Sheets.
+            </p>
+
+            <ol>
+              <li>
+                Open Google Sheets in your browser and create a new spreadsheet.
+              </li>
+              <li>
+                Fill out the first seven cells in the top row of your spreadsheet containing the individual titles: 
+                Year, Ranking, Album, Artist, Rating, Vinyl, EP, and Live.
+              </li>
+              <!-- insert image -->
+              <li>
+                Add your album data to your spreadsheet, skipping over the ranking column.
+              </li>
+              <!-- this section has a bunch of indented stuff -->
+              <li>
+                To sort your album data by release year, select all of your inputted data minus the column titles, 
+                then navigate to Data > Sort range > Advanced sorting options. 
+                A modal pops up allowing you to customize your sorting parameters. 
+              </li>
+              <!-- insert image -->
+              <li>
+                Keep the default sorting option to sort your albums chronologically by their release year. 
+                Click Add another sort column. 
+                Select Column E in the column drop down and sort by Z to A, then click Sort.
+              </li>
+              <!-- insert image -->
+              <li>
+                An album’s ranking is your ranking of a given album in comparison to other albums from the same release year. 
+                Within your sorted data, go through each year and number your albums.
+              </li>
+              <!-- this section also has a bunch of indented points -->
+              <li>
+                Export your music data as a CSV to your computer by navigating to File > Download > Comma Separated Values (.csv). 
+                Ensure this CSV file has been downloaded to your computer’s desktop.
+              </li>
+              <!-- insert image -->
+            </ol>
+          </div>
+
+          <!-- adding album info -->
+          <div>
+            <h3>Adding Your Album Information to MyFavoriteAlbums:</h3>
+            <p>
+              Once you have a CSV file containing all of your album rating information downloaded onto your Desktop, 
+              you need to add it to MyFavoriteAlbums.
+            </p>
+
+            <ol>
+              <li>
+                Open RStudio and navigate to the Files side panel to open the MyFavoriteAlbums folder.
+              </li>
+              <li>
+                After clicking on the MyFavoriteAlbums folder, open the Data folder.
+              </li>
+              <!-- insert image -->
+              <li>
+                Open up your RStudio terminal by clicking the terminal tab, and enter the print working directory command (pwd) into your terminal. 
+                The pwd command outputs your current location on your computer. 
+                Copy the output to use later.
+              </li>
+              <li>
+                Type the change directory command cd .. until you are located on your Desktop. 
+                Your location is noted by [device-name]:Desktop [user]$ on your terminal.
+              </li>
+              <li>
+                Move your CSV file to the Data folder in MyFavoriteAlbums by typing the following command into your terminal:
+                <!-- code snippet -->
+                mv [your CSV file name].csv [output copied from step 3]
+                <!-- break -->
+                The albums-ranking.csv should now be in the Data folder along with your own CSV file.
+              </li>
+              <!-- this step has an inline image -->
+              <li>
+                Open the Data folder and delete the albums-ranking.csv file by selecting the check box next to file name and then clicking  . 
+                Select Yes on the confirm delete pop up. 
+                Your data folder should now only contain your music data file.
+              </li>
+              <li>
+                While in the data directory in your terminal, rename the album-ratings.csv file in order for MyFavoriteAlbums to recognize it:
+                <!-- code snippet -->
+                mv [your CSV file name].csv album-ratings.csv
+              </li>
+            </ol>
+          </div>
+
+          <!-- deployment and publishing -->
+          <div>
+            <h3>Deploying and Publishing MyFavoriteAlbums:</h3>
+            <p>
+              MyFavoriteAlbums needs to be deployed in order for you to view your music data. 
+              Ensure that you have already created a shinyapps account.
+            </p>
+
+            <ol>
+              <li>
+
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- number one albums tab -->
+        <div>
+          <h2>Interacting with the Number One Albums Tab:</h2>
+          <p>
+            The Number One Albums tab allows you to view a list of your albums that have the highest rating for each year in an inputted range of years. 
+            There is a slider that you can drag to shrink or expand the range of years you wish to see your number one albums for.
+          </p>
+          <!-- insert image -->
+
+          <!-- modifying date range -->
+          <div>
+            <h3>Modifying the Date Range on the Number One Albums Tab:</h3>
+            <p>To modify the range of years on the Number One Albums tab’s slider, open the app_ui.R file in RStudio.</p>
+
+            <ol>
+              <li>
+                Locate this code that generates the UI for the tab. 
+                The line starting with sliderInput creates the range of years slider.
+              </li>
+              <!-- insert image -->
+              <li>
+                Modify the range that is displayed by replacing min = 1993 your oldest rated album’s year, 
+                and replacing max = 2024 with your newest rated album’s year.
+              </li>
+              <!-- insert image -->
+              <li>
+                To have your changes be reflected in the deployed version of MyFavoriteAlbums, 
+                navigate to app.R after saving and click Republish.
+              </li>
+              <!-- insert image -->
+            </ol>
+          </div>
+        </div>
+
+        <!-- top albums by year tab -->
+        <div>
+          <h2>Interacting with the Top Albums By Year Tab:</h2>
+          <p>
+            The Top Albums By Year tab allows you to view a ranked list of all of your albums from a selected release year, 
+            with the number one album being the highest rated.
+          </p>
+          <!-- insert image -->
+        </div>
+
+        <!-- artists' albums tab -->
+        <div>
+          <h2>Interacting with the Artists’ Albums Tab:</h2>
+          <p>
+            The Artists’ Albums tab allows you to view a list of information for specified artist’s albums, 
+            including the total number of albums you have ranked from the specified artist 
+            as well as the average rating of all of the artist’s albums. 
+            The output albums are sorted increasingly by their release year.
+          </p>
+          <!-- insert image -->
+        </div>
+
+        <!-- favorite artists tab -->
+        <div>
+          <h2>Interacting with the Favorite Artists Tab:</h2>
+          <p>
+            The Favorite Artists tab allows you to view a list of artists with a specified minimum number of albums. 
+            You also have the ability to exclude EPs and Live albums from the number of albums artists have. 
+            Outputted artists are sorted in decreasing order by their average rating, 
+            with the first artist in the list being your highest rated.
+          </p>
+          <!-- insert image -->
+        </div>
+
+        <!-- artist comparison tab -->
+        <div>
+          <h2>Interacting with the Artist Comparison Tab:</h2>
+          <p>
+            The Artist Comparison tab allows you to compare the album ratings of two selected artists over a range of time. 
+            The first band’s ratings over time is marked with a red line and the second band’s ratings over time is marked with a blue line.
+          </p>
+          <!-- insert image -->
+
+          <!-- modifying date rage -->
+          <div>
+            <h3>Modifying the Date Range on the Artist Comparison Tab:</h3>
+            <p>To modify the range of years on the Number One Albums tab’s slider, open the compare_bands.R file in RStudio.</p>
+            <ol>
+              <li>
+                Locate the ggplot function that creates the plot for this tab. 
+              </li>
+              <!-- insert image -->
+              <li>
+                Modify the range that is displayed on the plot by replacing the values highlighted in yellow 
+                with the release year of your oldest rated album and the values highlighted in pink 
+                with the release year of your newest rated album:
+                <!-- code snippets -->
+                scale_x_continuous(breaks=seq(1993,2024,1))
+                expand_limits(x=c(1993,2024), y=c(0,10))
+                <!-- insert imahe -->
+              </li>
+              <li>
+                To have your changes be reflected in the deployed version of MyFavoriteAlbums, 
+                navigate to app.R after saving and click Republish.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- vinyl tab -->
+        <div>
+          <h2>Interacting with the Vinyl Tab:</h2>
+          <p>The Vinyl tab allows you to view your highest rated albums of a specified range that you do not own on vinyl.</p>
+          <!-- insert picture -->
+        </div>
+      </div>
     </div>
   </body>

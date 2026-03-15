@@ -16,51 +16,195 @@
   </head>
 
   <body>
+    <nav class="sidebar">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a class="active" href="concept.html">Concept</a></li>
       <li><a href="tasks.html">Tasks</a></li>
       <li><a href="reference.html">Reference</a></li>
     </ul>
+    </nav>
 
     <div style="margin-left:130px;padding:1px 16px;height:1000px;">
-      <h2>Full-height Vertical Navbar</h2>
-      <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-      <p>Notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
+      <h1>Conceptual Overview</h1>
+
+      <!-- audience section -->
+      <div>
+        <h2>Audience</h2>
+        
+        <div>
+          <h4>Developers:</h4>
+          <p>
+            This conceptual overview is intended for developers with very basic experience and understanding of the data analysis programming language, R, 
+            who have an interest in learning about and implementing new music-analysis features into MyFavoriteAlbums. 
+            Some familiarity using integrated development environments (IDEs) is assumed, as well as some familiarity with HTML web applications.
+          </p>
+        </div>
+
+        <div>
+          <h4>Data-Curious Music Lovers:</h4>
+          <p>
+            This conceptual overview is intended for Music Lovers with limited knowledge of R programming but have an interest 
+            in utilizing the MyFavoriteAlbums software to interact with their own music data. 
+            Music Lovers should have some comfort with dealing with files and the file system on their device.
+          </p>
+        </div>
+      </div>
+
+      <!-- what is myfavoritealbums section -->
+      <div>
+        <h2>What is MyFavoriteAlbums?</h2>
+        <p>
+          MyFavoriteAlbums is a streamlined web application that allows music lovers to interact with 
+          statistics about their music album preferences, especially over a range of years. 
+          MyFavoriteAlbums enables users to easily see patterns in their music and album preferences 
+          through a simple, yet intuitive interface and graphical displays.
+        </p>
+
+        <div>
+          <h3>Key Features:</h3>
+          <ul>
+            <li>
+              Number One Albums: Users can specify a range of years and view a list of albums with the highest rating for each year in the range.
+            </li>
+            <li>
+              Top Albums By Year: Users can view a ranked list of all of their albums from a selected release year, 
+              with the number one album being the highest rated.
+            </li>
+            <li>
+              Artists’ Albums: Users can view a list of information for specified artist’s albums, 
+              including the total number of albums the user has ranked from the artist as well as the 
+              average rating of all of the artist’s albums that have been ranked by the user.
+            </li>
+            <li>
+              Favorite Artists: Users can view a list of artists with a specified minimum number of 
+              rated albums who have the highest average rating given by the user. 
+              Users also have the ability to exclude EPs and Live albums from the number of total albums artists have.
+            </li>
+            <li>
+              Artist Comparison: Users can compare the album ratings of two selected artists over a range of time.
+            </li>
+            <li>
+              Vinyl: Users can see their highest rated albums of a specified range that they do not own on vinyl.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Limitations:</h3>
+          <ul>
+            <li>
+              MyFavoriteAlbums does not allow you to save the outputted statistical data and visualizations onto your device.
+            </li>
+            <li>
+              MyFavoriteAlbums requires users to manually upload their music data in CSV format within the software.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- software architecture section -->
+      <div>
+        <h2>Software Architecture</h2>
+        
+        <!-- music data -->
+        <div>
+          <h3>Music Data:</h3>
+          <p>
+            MyFavoriteAlbum’s data is stored as a CSV (comma separated value) file on the application’s backend 
+            that is interacted with by the application’s R code to perform data analysis. 
+          </p>
+
+          <p>
+            This CSV contains the following information formatted as columns:
+          </p>
+          <ul>
+            <li>
+              Album year
+            </li>
+            <li>
+              Album ranking
+            </li>
+            <li>
+              Album name
+            </li>
+            <li>
+              Artist
+            </li>
+            <li>
+              Album rating on a scale of 1-10 (1 is the worst rating, 10 is the highest rating)
+            </li>
+            <li>
+              If the album is owned on vinyl - indicated by a "v"
+            </li>
+            <li>
+              If the album is an EP (extended play) - indicated by an "EP"
+            </li>
+            <li>
+              If the album is live - indicated by a "live"
+            </li>
+          </ul>
+        </div>
+
+        <!-- r code -->
+        <div>
+          <h3>R Code:</h3>
+          <p>
+            MyFavoriteAlbums is an R based web application. 
+            The application’s server builds the MyFavoriteAlbums with HTML and creates 
+            the individual analysis function tabs that can be interacted with by the user. 
+          </p>
+        </div>
+
+        <!-- user interface -->
+        <div>
+          <h3>User Interface:</h3>
+          <p>
+            MyFavoriteAlbums’ user interface works closely with the application’s server as well as the R package, 
+            shiny’s function fluidpage to specify the layout of the web page, 
+            allowing for the tab-based structure of the application.
+          </p>
+        </div>
+      </div>
+
+      <!-- tools and environment section -->
+      <div>
+        <h2>Tools and Environment</h2>
+        <p>
+          MyFavoriteAlbums requires developers to have R and RStudio installed onto their device.
+          Similarly, users who wish to view their personal music data on MyFavoriteAlbums will also need to install R and RStudio, 
+          which can be downloaded by following the <a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop Downloading Instructions</a>.
+        </p>
+
+        <p>
+          The packages shiny, dplyr, and ggplot2 are required for MyFavoriteAlbums to properly run.
+        </p>
+        <ul>
+          <li>
+            shiny: turns the R code into an interactive web application.
+          </li>
+
+          <li>
+            dplyr: helps to manipulate the given music data for statistical analysis.
+          </li>
+
+          <li>
+            ggplot2: creates the visualization graphics for the given music rating data.
+          </li>
+        </ul>
+
+        <div>
+          <h4>Data-Curious Music Lovers:</h4>
+
+          <p>
+            Users who wish to view their own music data will need to create a CSV file containing this information. 
+            This can be done using tools like <a href="https://workspace.google.com/products/sheets/" target="_blank">Google Sheets</a>, <a href="https://excel.cloud.microsoft/" target="_blank">Excel</a>, or TextEdit (macOS). 
+          </p>
+
+          <p>
+            Users will also need to create a <a href="http://shinyapps.io" target="_blank">shinyapps.io</a> account in order to deploy their own version of MyFavoriteAlbums and view their own music data on the application.
+          </p>
+        </div>
+      </div>
     </div>
   </body>
