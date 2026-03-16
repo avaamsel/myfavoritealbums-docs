@@ -40,42 +40,186 @@
       <div style="margin-left: 40px;">
         <h3>albums_by_band.R:</h3>
         <p>The functions in the <span class="code">albums_by_band.R</span> file create the functionality in MyFavoriteAlbums’ <b>Artists’ Albums</b> tab.</p>
+        
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">albums_by_bands</span></td>
+            <td>Filters <span class="code">album_data</span> to return all of the rated albums by a specific artist</td>
+            <td><span class="code">band.var:</span> Specified artist to filter by, chosen in the dropdown</td>
+            <td><span class="code">band_albums:</span> Dataframe containing the three columns, “Album”, “Year”, “Rating”, which specifies the albums of the selected artist</td>
+          </tr>
+          <tr>
+            <td><span class="code">band_mean_rating</span></td>
+            <td>Calculates the average rating for the specified artist rounded to the nearest two decimal places</td>
+            <td><span class="code">band.var:</span> Specified artist to calculate the average rating for, chosen in the dropdown</td>
+            <td><span class="code">avg_rating:</span> Printed string detailing the average rating for the specified artist</td>
+          </tr>
+          <tr>
+            <td><span class="code">band_album_count</span></td>
+            <td>Counts the total number of albums ranked for the specified artist</td>
+            <td><span class="code">band.var:</span> Specified artist to count the number of ranked albums for</td>
+            <td><span class="code">band_count:</span> Printed string detailing the total number of ranked albums for the specified artists</td>
+          </tr>
+        </table>
       </div>
 
       <!-- albums by year -->
       <div style="margin-left: 40px;">
         <h3>albums_by_year.R:</h3>
         <p>The function in the <span class="code">albums_by_year.R</span> file creates the functionality in MyFavoriteAlbums’ <b>Top Albums by Year</b> tab.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">year_albums</span></td>
+            <td>Lists all of  the top albums for a specified year in ranking order</td>
+            <td><span class="code">year.var:</span> Specified year to filter the user’s albums by</td>
+            <td><span class="code">year_list:</span> Dataframe containing the three columns, “Ranking”, “Album”, “Artists”, which specifies all of the albums ranked for the given year, sorted in ranking order</td>
+          </tr>
+        </table>
       </div>
 
       <!-- compare bands -->
       <div style="margin-left: 40px;">
         <h3>compare_bands.R:</h3>
         <p>The function in the <span class="code">compare_bands.R</span> file creates the functionality in MyFavoriteAlbums’ <b>Artist Comparison</b> tab.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">band_album_comparison_chart</span></td>
+            <td>Compares the ratings of two artists' albums over time on a line chart</td>
+            <td>
+              <span class="code">var.artist1</span>: Name of the first artist to compare
+              <br/>
+              <br/>
+              <span class="code">var.artist2:</span> Name of the second artist to comparevar.artist2: Name of the second artist to compare
+            </td>
+            <td><span class="code">ggplot()</span>: ggplot2 line chart comparing the ratings over time for two specified artists</td>
+          </tr>
+        </table>
       </div>
 
       <!-- fav bands -->
       <div style="margin-left: 40px;">
         <h3>fav_bands.R:</h3>
         <p>The function in the <span class="code">fav_bands.R</span> file creates the functionality in MyFavoriteAlbums’ <b>Favorite Artists</b> tab.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">favorite_bands</span></td>
+            <td>Finds the top 15 bands with at least a specified number of ranked albums, ordered by highest average rating</td>
+            <td>
+              <span class="code">min_albums.var:</span> Number specifying the minimum number of albums an artist must have to be included
+              <br/>
+              <br/>
+              <span class="code">live_ep.var:</span> Boolean specifying if the <b>Exclude EPs and Live Albums</b> checkbox has been clicked. If true, EPs and Live albums are not included. If false, EPs and Live albums are included
+            </td>
+            <td><span class="code">fav_artists:</span> Dataframe containing the three columns, “Artist”, “Rating”, “NumRatings”, which specifies the top 15 bands that have the specified number of albums rated</td>
+          </tr>
+        </table>
       </div>
 
       <!-- home -->
       <div style="margin-left: 40px;">
         <h3>home.R:</h3>
         <p>The functions in the <span class="code">home.R</span> file create the functionality in MyFavoriteAlbums’ home page.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">total_album_count</span></td>
+            <td>Finds the total number of albums in the data set. Subtracts 1 for the row with the headings</td>
+            <td>N/A</td>
+            <td><span class="code">total_albums:</span> Printed string detailing the total number of albums that are in the data set</td>
+          </tr>
+          <tr>
+            <td><span class="code">total_band_count</span></td>
+            <td>Finds the total number of bands in the data set. Uses unique to avoid counting the same band twice</td>
+            <td>N/A</td>
+            <td><span class="code">top_bands</span>: Printed string detailing the total number of bands that are in the data set</td>
+          </tr>
+          <tr>
+            <td><span class="code">most_pop_band</span></td>
+            <td>Finds the artist in the data set with the most albums</td>
+            <td>N/A</td>
+            <td><span class="code">popular_artists:</span> Printed string detailing the artist with the most albums in the data set</td>
+          </tr>
+        </table>
       </div>
 
       <!-- number one albums -->
       <div style="margin-left: 40px;">
         <h3>number_one_albums.R:</h3>
         <p>The functions in the <span class="code">number_one_albums.R</span> file create the functionality in MyFavoriteAlbums’ <b>Number One Albums</b> tab.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">number_one_album</span></td>
+            <td>Lists the number one album for each year in the indicated range</td>
+            <td>
+              <span class="code">var.startyear:</span> Start year of the date range to filter albums from
+              <br/>
+              <br/>
+              <span class="code">var.endyear</span>: End year of the date range to filter albums from
+            </td>
+            <td><span class="code">top_albums:</span> dataframe containing the three columns, “Year”, “Album”, “Artist”, which stores the number one ranked album for each year in the specified year range</td>
+          </tr>
+        </table>
       </div>
 
       <!-- vinyl -->
       <div style="margin-left: 40px;">
         <h3>vinyl.R:</h3>
         <p>The functions in the <span class="code">vinyl.R</span> file create the functionality in MyFavoriteAlbums’ <b>Vinyl</b> tab.</p>
+
+        <table>
+          <tr>
+            <th>Fuction Name</th>
+            <th>Function Description</th>
+            <th>Function Parameters</th>
+            <th>Function Outputs</th>
+          </tr>
+          <tr>
+            <td><span class="code">missing_vinyl</span></td>
+            <td>Finds top-rated albums that the person does not own on vinyl</td>
+            <td><span class="code">missing_vinyl_rating.var:</span> Number specifying the minimum rating to allow an album to be output</td>
+            <td><span class="code">buy_vinyl:</span> dataframe containing the three columns, “Album”, “Artist”, “Rating”, which specifies the albums that meet the minimum rating threshold and are not owned on vinyl</td>
+          </tr>
+        </table>
       </div>
     </div>
 

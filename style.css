@@ -152,3 +152,25 @@ a {
   color: green;
   overflow-x: auto;
 }
+
+/* table stylings */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+th {
+  background-color: #b6d7a8;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px;
+  padding-left: 14px;
+  text-align: left;
+}
