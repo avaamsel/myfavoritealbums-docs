@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -21,11 +22,17 @@
       <li><a href="index.html">Home</a></li>
       <li><a class="active" href="concept.html">Concept</a></li>
       <li><a href="tasks.html">Tasks</a></li>
-      <li><a href="reference.html">Reference</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Reference <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <a href="dev-reference.html">API Reference</a>
+          <a href="user-reference.html">FAQs</a>
+        </div>
+      </li>
     </ul>
     </nav>
 
-    <div style="margin-left:130px;padding:1px 16px;height:1000px;">
+    <div style="margin-left:266px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
       <h1>Conceptual Overview</h1>
 
       <!-- audience section -->
@@ -207,4 +214,32 @@
         </div>
       </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.querySelector('.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+        const arrowIcon = document.querySelector('.arrow-icon');
+        const currentPath = window.location.pathname.split('/').pop();
+        if (currentPath === 'dev-reference.html' || currentPath === 'user-reference.html') {
+          dropdown.classList.add('show');
+          dropbtn.classList.add('open');
+          arrowIcon.classList.remove('bi-chevron-right');
+          arrowIcon.classList.add('bi-chevron-down');
+          const links = dropdown.querySelectorAll('.dropdown-content a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+              link.classList.add('active');
+            }
+          });
+        }
+        dropbtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+          dropbtn.classList.toggle('open');
+          arrowIcon.classList.toggle('bi-chevron-down');
+          arrowIcon.classList.toggle('bi-chevron-right');
+        });
+      });
+    </script>
   </body>

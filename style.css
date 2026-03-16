@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .sidebar {
   position: fixed;
   height: 100%;
-  width: 130px;
+  width: 240px;
   background-color: #f1f1f1;
   overflow: auto;
 }
@@ -21,14 +25,130 @@ body {
   color: black;
   padding: 8px 16px;
   text-decoration: none;
+  background: none;
 }
 
 .sidebar li a.active {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #b6d7a8;
+  color: #38761d;
 }
 
 .sidebar li a:hover:not(.active) {
-  background-color: #555555;
-  color: white;
+  background-color: #ffe599;
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  display: block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 170%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.dropbtn.active {
+  background-color: #b6d7a8 !important;
+  color: #38761d !important;
+}
+
+.dropbtn:hover {
+  background: #ffe599 !important;
+  color: black !important;
+}
+
+.dropbtn.open {
+  background: none !important;
+  color: black !important;
+}
+
+.arrow-icon {
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 240px;
+  z-index: 1;
+  left: 0;
+  top: 100%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-indent: 32px;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffe599;
+  color: black;
+}
+
+.dropdown-content a.active {
+  background-color: #b6d7a8;
+  color: #38761d;
+}
+
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+/* heading stylings */
+
+h1 {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #38761d
+}
+
+h2 {
+  font-size: 1.6em;
+  font-style: italic;
+  margin-bottom: 2%;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 3%;
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+  background-color: #cfe2f3;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.code {
+  font-family: 'Space Mono', monospace;
+  color: green;
+}
+
+.code-box {
+  background-color: #f5f5f5;
+  padding: 15px;
+  margin: 10px 0;
+  border-left: 4px solid #ccc;
+  font-family: 'Space Mono', monospace;
+  color: green;
+  overflow-x: auto;
 }

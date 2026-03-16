@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyFavoriteAlbums Docs</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="concept.html">Concept</a></li>
+      <li><a href="tasks.html">Tasks</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn active">Reference <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <a href="dev-reference.html">API Reference</a>
+          <a href="user-reference.html">FAQs</a>
+        </div>
+      </li>
+    </ul>
+    </nav>
+
+    <div style="margin-left:266px;margin-right:80px;padding:1px 16px 80px 16px;max-width:1200px;">
+      <h1>Reference Documents for Data-Curious Music Lovers</h1>
+      <h2>Frequently Asked Questions:</h2>
+        
+      <!-- can't download packages? -->
+      <div style="margin-left: 40px;">
+        <h3>Why Won't RStudio Let Me Download Packages?:</h3>
+        <p>If you are getting errors when downloading packages like:</p>
+        <p class="code-box">syntax error near unexpected token `"shiny"`</p>
+        <p>
+          You are attempting to download your packages within the RStudio terminal.
+          To download packages for R and RStudio, ensure you are in the <b>console</b> tab.
+        </p>
+        <img src="public/user-reference/reference1.png" alt="RStudio Console vs. Terminal" style="max-width:40%; height:auto;">
+      </div>
+
+      <!-- myfavalbums in browser? -->
+      <div style="margin-left: 40px;">
+        <h3>How Do I See MyFavoriteAlbums in My Browser?:</h3>
+        <p>
+          To see MyFavoriteAlbums in your browser, navigate to <span class="code">App.R</span>, 
+          and click the <b>Run App</b> button located in the RStudio navigation bar. 
+          Clicking this button will open the local version of MyFavoriteAlbums in your browser. 
+        </p>
+        <img src="public/user-reference/reference2.png" alt="RStudio Run App button" style="max-width:20%; height:auto;">
+
+        <p style="margin-top:2%">If you have MyFavoriteAlbums deployed, you can also view MyFavoriteAlbums by accessing a link to your deployed application.</p>
+        <!-- link to the task doc -->
+         <!-- do i need to explain why? i think so. -->
+        <p>To deploy MyFavoriteAlbums, follow the <a href="" target="_blank">MyFavoriteAlbums deployment instructions</a> and the <a href="" target="_blank">MyFavoriteAlbums publishing instructions</a>.</p>
+      </div>
+
+      <!-- myfavalbums not recognizing data? -->
+      <div style="margin-left: 40px;">
+        <h3>Why is MyFavoriteAlbums Not Recognizing My Album Data?:</h3>
+        <p>
+          MyFavoriteAlbums may not be recognizing your album data because your CSV is not named properly. 
+          MyFavoriteAlbums requires album data files to be named <span class="code">album-rankings.csv</span> and will not recognize 
+          your file if it is named something else.
+          MyFavoriteAlbums also requires your data file to be stored within the <span class="code">/data</span> directory and have your working directory set properly.
+        </p>
+
+        <p>
+          This warning occurs in your RStudio console when your album data file is not named properly, 
+          your album data file is not located properly, or your working directory is not set correctly:
+        </p>
+        <p class="code-box">cannot open file 'data/album-rankings.csv': No such file or directory</p>
+
+        <!-- both contain links to task page -->
+        <p style="margin-top:2%">To rename and locate your album data file properly, follow the <a href="" target="_blank">instructions to properly add your custom music data to MyFavoriteAlbums</a>.</p>
+      </div>
+
+      <!-- modify year range? -->
+      <div style="margin-left: 40px;">
+        <h3>How Do I Modify the Year Range In the Number One Albums Tab?:</h3>
+        <p>
+          To modify the year range in the <b>Number One Albums</b> tab, 
+          first verify your new year range by finding the year of your oldest and newest rated album. 
+          This can be done by viewing your logged data in <span class="code">album-rankings.csv</span>. 
+        </p>
+          
+        <!-- both have links to tasks doc -->
+        <p>Once you know the start and end years for your albums’ year range, follow the <a href="" target="_blank">instructions to update the year slider for the <b>Number One Albums</b> tab</a>.</p>
+        <!-- does this have to many references to the artist comparison tab? -->
+        <p>The <b>Artist Comparison</b> tab also utilizes a year range to display your data. Make sure to modify the year range in the <b>Artist Comparison</b> tab, by following the <a href="" target="_blank">instructions to update the year range for the <b>Artist Comparison</b> tab</a>.</p>
+      </div>
+
+        <!-- why aren't changes showing in deployed? -->
+      <div style="margin-left: 40px;">
+        <h3>Why Aren't My Changes to MyFavoriteAlbums Showing Up in My Deployed Version?:</h3>
+        <p>If you have made changes to MyFavoriteAlbums and they are not showing up in your deployed version of the web application:</p>
+        <ol>
+          <li>
+            Ensure that the files where you have made changes have been saved in RStudio.
+          </li>
+          <li>
+            Once all of your modified files have been saved, navigate to <span class="code">App.R</span>.
+          </li>
+          <li>
+            Click the <b>Republish</b> button in the RStudio navigation bar. 
+            A pop-up window will appear on your screen verifying the files to be published by Shiny for MyFavoriteAlbums.
+          </li>
+          <img src="public/user-reference/reference3.png" alt="RStudio Run App button" style="max-width:20%; height:auto;">
+
+          <ul>
+            <li>
+            If you have not deployed MyFavoriteAlbums, you will see a button that says <b>Publish</b>. 
+            To deploy and publish MyFavoriteAlbums, follow the <a href="" target="_blank">instructions to deploy and publish MyFavoriteAlbums</a>.
+          </li>
+          </ul>
+          <li>
+            In the pop-up window, click <b>Publish</b>. 
+            Within your RStudio console you will see shiny’s logs as MyFavoriteAlbums is being built. 
+            Once MyFavoriteAlbums has been successfully built, the updated version of MyFavoriteAlbums will open in a new browser window.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.querySelector('.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+        const arrowIcon = document.querySelector('.arrow-icon');
+        const currentPath = window.location.pathname.split('/').pop();
+        if (currentPath === 'dev-reference.html' || currentPath === 'user-reference.html') {
+          dropdown.classList.add('show');
+          dropbtn.classList.add('open');
+          arrowIcon.classList.remove('bi-chevron-right');
+          arrowIcon.classList.add('bi-chevron-down');
+          const links = dropdown.querySelectorAll('.dropdown-content a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+              link.classList.add('active');
+            }
+          });
+        }
+        dropbtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+          dropbtn.classList.toggle('open');
+          arrowIcon.classList.toggle('bi-chevron-down');
+          arrowIcon.classList.toggle('bi-chevron-right');
+        });
+      });
+    </script>
+  </body>
