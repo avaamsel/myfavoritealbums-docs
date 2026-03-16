@@ -149,7 +149,7 @@ p {
 a {
   color: blue;
   text-decoration: underline;
-  background-color: #cfe2f3;
+  /* background-color: #cfe2f3; */
   padding: 3px;
   border-radius: 3px;
 }
