@@ -21,9 +21,28 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a class="active" href="concept.html">Concept</a></li>
-      <li><a href="tasks.html">Tasks</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Reference <i class="bi bi-chevron-right arrow-icon"></i></a>
+      <li class="dropdown tasks-dropdown">
+        <a href="#" class="dropbtn">Tasks <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <div class="inner-tasks-dropdown">
+            <a class="inner-dropbtn" href="dev-tasks.html">
+              Task Topics for Developers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="dev-tasks.html#setting-up-the-myfavoritealbums-tech-stack">Setting up the Tech Stack</a>
+              <a href="dev-tasks.html#adding-new-functions-to-myfavoritealbums">Adding New Functions</a>
+            </div>
+          </div>
+          <a href="user-tasks.html">Task Topics for Data-Curious Music Lovers</a>
+        </div>
+      </li>
+      <li class="dropdown page-sections-dropdown">
+        <a href="#" class="dropbtn">On this page <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+        </div>
+      </li>
+      <li class="dropdown reference-dropdown">
+        <a href="#" class="dropbtn reference-dropbtn">Reference <i class="bi bi-chevron-right arrow-icon reference-arrow-icon"></i></a>
         <div class="dropdown-content">
           <a href="dev-reference.html">API Reference</a>
           <a href="user-reference.html">FAQs</a>
@@ -68,7 +87,7 @@
           through a simple, yet intuitive interface and graphical displays.
         </p>
 
-        <div>
+        <div style="margin-left: 40px;">
           <h3>Key Features:</h3>
           <ul>
             <li>
@@ -97,7 +116,7 @@
           </ul>
         </div>
 
-        <div>
+        <div style="margin-left: 40px;">
           <h3>Limitations:</h3>
           <ul>
             <li>
@@ -115,7 +134,7 @@
         <h2>Software Architecture</h2>
         
         <!-- music data -->
-        <div>
+        <div style="margin-left: 40px;">
           <h3>Music Data:</h3>
           <p>
             MyFavoriteAlbum’s data is stored as a CSV (comma separated value) file on the application’s backend 
@@ -154,7 +173,7 @@
         </div>
 
         <!-- r code -->
-        <div>
+        <div style="margin-left: 40px;">
           <h3>R Code:</h3>
           <p>
             MyFavoriteAlbums is an R based web application. 
@@ -164,7 +183,7 @@
         </div>
 
         <!-- user interface -->
-        <div>
+        <div style="margin-left: 40px;">
           <h3>User Interface:</h3>
           <p>
             MyFavoriteAlbums’ user interface works closely with the application’s server as well as the R package, 
@@ -217,29 +236,148 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const dropdown = document.querySelector('.dropdown');
-        const dropbtn = document.querySelector('.dropbtn');
-        const arrowIcon = document.querySelector('.arrow-icon');
+        const referenceDropdown = document.querySelector('.reference-dropdown');
+        const referenceDropbtn = document.querySelector('.reference-dropbtn');
+        const referenceArrowIcon = document.querySelector('.reference-arrow-icon');
         const currentPath = window.location.pathname.split('/').pop();
         if (currentPath === 'dev-reference.html' || currentPath === 'user-reference.html') {
-          dropdown.classList.add('show');
-          dropbtn.classList.add('open');
-          arrowIcon.classList.remove('bi-chevron-right');
-          arrowIcon.classList.add('bi-chevron-down');
-          const links = dropdown.querySelectorAll('.dropdown-content a');
+          referenceDropdown.classList.add('show');
+          referenceDropbtn.classList.add('open');
+          referenceArrowIcon.classList.remove('bi-chevron-right');
+          referenceArrowIcon.classList.add('bi-chevron-down');
+          const links = referenceDropdown.querySelectorAll('.dropdown-content a');
           links.forEach(link => {
             if (link.getAttribute('href') === currentPath) {
               link.classList.add('active');
             }
           });
         }
-        dropbtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          dropdown.classList.toggle('show');
-          dropbtn.classList.toggle('open');
-          arrowIcon.classList.toggle('bi-chevron-down');
-          arrowIcon.classList.toggle('bi-chevron-right');
+        if (referenceDropbtn) {
+          referenceDropbtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            referenceDropdown.classList.toggle('show');
+            referenceDropbtn.classList.toggle('open');
+            referenceArrowIcon.classList.toggle('bi-chevron-down');
+            referenceArrowIcon.classList.toggle('bi-chevron-right');
+          });
+        }
+        
+        const taskDropdown = document.querySelector('.dropdown.tasks-dropdown');
+        if (taskDropdown) {
+          const taskDropbtn = taskDropdown.querySelector('.dropbtn');
+          const taskArrowIcon = taskDropdown.querySelector('.arrow-icon');
+
+          if (taskDropbtn && (currentPath === 'dev-tasks.html' || currentPath === 'user-tasks.html')) {
+            taskDropdown.classList.add('show');
+            taskDropbtn.classList.add('open');
+            if (taskArrowIcon) {
+              taskArrowIcon.classList.remove('bi-chevron-right');
+              taskArrowIcon.classList.add('bi-chevron-down');
+            }
+            const taskLinks = taskDropdown.querySelectorAll('.dropdown-content a');
+            taskLinks.forEach(link => {
+              if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+              }
+            });
+          }
+
+          if (taskDropbtn) {
+            taskDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              taskDropdown.classList.toggle('show');
+              taskDropbtn.classList.toggle('open');
+              if (taskArrowIcon) {
+                taskArrowIcon.classList.toggle('bi-chevron-down');
+                taskArrowIcon.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
+
+        const innerTasksDropdown = document.querySelector('.inner-tasks-dropdown');
+        if (innerTasksDropdown) {
+          const innerDropbtn = innerTasksDropdown.querySelector('.inner-dropbtn');
+          const innerArrowIcon = innerTasksDropdown.querySelector('.inner-dropbtn .arrow-icon');
+
+          if (innerDropbtn) {
+            innerDropbtn.addEventListener('click', function(e) {
+              // Only toggle dropdown without navigation when already on dev-tasks.html
+              if (currentPath === 'dev-tasks.html') {
+                e.preventDefault();
+                innerTasksDropdown.classList.toggle('show');
+                if (innerArrowIcon) {
+                  innerArrowIcon.classList.toggle('bi-chevron-down');
+                  innerArrowIcon.classList.toggle('bi-chevron-right');
+                }
+              }
+            });
+          }
+        }
+
+        const slugify = (text) =>
+          text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-');
+
+        document.querySelectorAll('h2').forEach((h2) => {
+          const text = h2.textContent.trim();
+          if (!text) return;
+
+          let baseId = slugify(text);
+          if (!baseId) return;
+
+          let uniqueId = baseId;
+          let counter = 2;
+          while (document.getElementById(uniqueId)) {
+            uniqueId = `${baseId}-${counter++}`;
+          }
+
+          if (!h2.id) {
+            h2.id = uniqueId;
+          }
+
+          const link = document.createElement('a');
+          link.href = `#${h2.id}`;
+          link.textContent = text;
+
+          h2.textContent = '';
+          h2.appendChild(link);
         });
+
+        const sectionsDropdown = document.querySelector('.page-sections-dropdown');
+        if (sectionsDropdown) {
+          const sectionsDropbtn = sectionsDropdown.querySelector('.dropbtn');
+          const sectionsArrow = sectionsDropdown.querySelector('.arrow-icon');
+          const sectionsContent = sectionsDropdown.querySelector('.dropdown-content');
+          const h2Anchors = document.querySelectorAll('h2 a[href^="#"]');
+
+          h2Anchors.forEach((anchor) => {
+            const href = anchor.getAttribute('href');
+            const text = anchor.textContent.trim();
+            if (!href || !text || !sectionsContent) return;
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = text;
+            sectionsContent.appendChild(link);
+          });
+
+          if (sectionsContent && sectionsContent.children.length === 0) {
+            sectionsDropdown.style.display = 'none';
+          } else if (sectionsDropbtn) {
+            sectionsDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              sectionsDropdown.classList.toggle('show');
+              sectionsDropbtn.classList.toggle('open');
+              if (sectionsArrow) {
+                sectionsArrow.classList.toggle('bi-chevron-down');
+                sectionsArrow.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
       });
     </script>
   </body>

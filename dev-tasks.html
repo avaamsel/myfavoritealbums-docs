@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyFavoriteAlbums Docs</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="concept.html">Concept</a></li>
+      <li class="dropdown tasks-dropdown">
+        <a href="#" class="dropbtn">Tasks <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <div class="inner-tasks-dropdown">
+            <a class="active inner-dropbtn" href="dev-tasks.html">
+              Task Topics for Developers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="#setting-up-the-myfavoritealbums-tech-stack">Setting up the Tech Stack</a>
+              <a href="#adding-new-functions-to-myfavoritealbums">Adding New Functions</a>
+            </div>
+          </div>
+          <a href="user-tasks.html">Task Topics for Data-Curious Music Lovers</a>
+        </div>
+      </li>
+      <li class="dropdown reference-dropdown">
+        <a href="#" class="dropbtn reference-dropbtn">Reference <i class="bi bi-chevron-right arrow-icon reference-arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <a href="dev-reference.html">API Reference</a>
+          <a href="user-reference.html">FAQs</a>
+        </div>
+      </li>
+    </ul>
+    </nav>
+
+    <div style="margin-left:266px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+      <div>
+        <h1>Task Topics for Developers:</h1>
+
+        <!-- setting up myfavalbums -->
+        <div>
+          <h2 id="setting-up-the-myfavoritealbums-tech-stack">Setting up the MyFavoriteAlbums Tech Stack:</h2>
+
+          <!-- cloning the repo -->
+          <div style="margin-left: 40px;">
+            <h3>Cloning the MyFavoriteAlbums Repository:</h3>
+            <ol>
+              <li>
+                Access the RStudio terminal by clicking on the Terminal tab at the top of the bottom window.
+              </li>
+              <!-- insert picture -->
+              <li>
+                In your terminal, verify that you are currently located in your Desktop directory. 
+                Your directory path should look something like this:
+                <!-- code snippet -->
+                 [device-name]:Desktop [user]$
+              </li>
+              <li>
+                If you are not on your desktop, change your directory entering the following command into your terminal: 
+                <!-- code snippet -->
+                cd Desktop
+              </li>
+              <li>
+                Clone the MyFavoriteAlbums repository onto your device. 
+                <!-- code snippet -->
+                git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+              </li>
+              <li>
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the ls command. 
+                You should see the repository name, MyFavoriteAlbums, output in the list of your desktop contents if it has been cloned correctly.
+                <!-- code snippet -->
+                 ls Desktop
+              </li>
+              <li>
+                To download MyFavoriteAlbums’ required packages run the following command in your RStudio console:
+                <!-- code snippet -->
+                install.packages(c("shiny", "dplyr", "tidyverse"))
+              </li>
+            </ol>
+          </div>
+
+          <!-- running myfavalbums -->
+          <div style="margin-left: 40px;">
+            <h3>Running MyFavoriteAlbums:</h3>
+            <ol>
+              <li>
+                Within the right Files subwindow, navigate to the app.R file.
+              </li>
+              <!-- insert picture -->
+              <li>
+                In the main coding window, click on the Run App button in this window’s navigation bar 
+                to open a local version of the MyFavoriteAlbums web application.
+              </li>
+              <!-- insert picture -->
+            </ol>
+          </div>
+        </div>
+
+        <!-- adding new functions (tutorial) -->
+        <div>
+          <h2 id="adding-new-functions-to-myfavoritealbums">Adding New Functions to MyFavoriteAlbums:</h2>
+          <p>
+            To add new functionality to MyFavoriteAlbums, you must have a basic understanding of R. 
+            Make sure you are in the MyFavoriteAlbums directory in RStudio.
+          </p>
+
+          <!-- tutorial -->
+          <ol>
+            <li>
+
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const referenceDropdown = document.querySelector('.reference-dropdown');
+        const referenceDropbtn = document.querySelector('.reference-dropbtn');
+        const referenceArrowIcon = document.querySelector('.reference-arrow-icon');
+        const currentPath = window.location.pathname.split('/').pop();
+        if (currentPath === 'dev-reference.html' || currentPath === 'user-reference.html') {
+          referenceDropdown.classList.add('show');
+          referenceDropbtn.classList.add('open');
+          referenceArrowIcon.classList.remove('bi-chevron-right');
+          referenceArrowIcon.classList.add('bi-chevron-down');
+          const links = referenceDropdown.querySelectorAll('.dropdown-content a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+              link.classList.add('active');
+            }
+          });
+        }
+        if (referenceDropbtn) {
+          referenceDropbtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            referenceDropdown.classList.toggle('show');
+            referenceDropbtn.classList.toggle('open');
+            referenceArrowIcon.classList.toggle('bi-chevron-down');
+            referenceArrowIcon.classList.toggle('bi-chevron-right');
+          });
+        }
+
+        const taskDropdown = document.querySelector('.dropdown.tasks-dropdown');
+        if (taskDropdown) {
+          const taskDropbtn = taskDropdown.querySelector('.dropbtn');
+          const taskArrowIcon = taskDropdown.querySelector('.arrow-icon');
+
+          if (taskDropbtn && (currentPath === 'dev-tasks.html' || currentPath === 'user-tasks.html')) {
+            taskDropdown.classList.add('show');
+            taskDropbtn.classList.add('open');
+            if (taskArrowIcon) {
+              taskArrowIcon.classList.remove('bi-chevron-right');
+              taskArrowIcon.classList.add('bi-chevron-down');
+            }
+            const taskLinks = taskDropdown.querySelectorAll('.dropdown-content a');
+            taskLinks.forEach(link => {
+              if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+              }
+            });
+          }
+
+          if (taskDropbtn) {
+            taskDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              taskDropdown.classList.toggle('show');
+              taskDropbtn.classList.toggle('open');
+              if (taskArrowIcon) {
+                taskArrowIcon.classList.toggle('bi-chevron-down');
+                taskArrowIcon.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
+
+        const innerTasksDropdown = document.querySelector('.inner-tasks-dropdown');
+        if (innerTasksDropdown) {
+          const innerDropbtn = innerTasksDropdown.querySelector('.inner-dropbtn');
+          const innerArrowIcon = innerTasksDropdown.querySelector('.inner-dropbtn .arrow-icon');
+
+          if (currentPath === 'dev-tasks.html') {
+            innerTasksDropdown.classList.add('show');
+            if (innerArrowIcon) {
+              innerArrowIcon.classList.remove('bi-chevron-right');
+              innerArrowIcon.classList.add('bi-chevron-down');
+            }
+          }
+
+          if (innerDropbtn) {
+            innerDropbtn.addEventListener('click', function(e) {
+              if (currentPath === 'dev-tasks.html') {
+                e.preventDefault();
+                innerTasksDropdown.classList.toggle('show');
+                if (innerArrowIcon) {
+                  innerArrowIcon.classList.toggle('bi-chevron-down');
+                  innerArrowIcon.classList.toggle('bi-chevron-right');
+                }
+              }
+            });
+          }
+        }
+
+        const slugify = (text) =>
+          text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-');
+
+        document.querySelectorAll('h2').forEach((h2) => {
+          const text = h2.textContent.trim();
+          if (!text) return;
+
+          let baseId = slugify(text);
+          if (!baseId) return;
+
+          let uniqueId = baseId;
+          let counter = 2;
+          while (document.getElementById(uniqueId)) {
+            uniqueId = `${baseId}-${counter++}`;
+          }
+
+          if (!h2.id) {
+            h2.id = uniqueId;
+          }
+
+          const link = document.createElement('a');
+          link.href = `#${h2.id}`;
+          link.textContent = text;
+
+          h2.textContent = '';
+          h2.appendChild(link);
+        });
+
+        const sectionsDropdown = document.querySelector('.page-sections-dropdown');
+        if (sectionsDropdown) {
+          const sectionsDropbtn = sectionsDropdown.querySelector('.dropbtn');
+          const sectionsArrow = sectionsDropdown.querySelector('.arrow-icon');
+          const sectionsContent = sectionsDropdown.querySelector('.dropdown-content');
+          const h2Anchors = document.querySelectorAll('h2 a[href^="#"]');
+
+          h2Anchors.forEach((anchor) => {
+            const href = anchor.getAttribute('href');
+            const text = anchor.textContent.trim();
+            if (!href || !text || !sectionsContent) return;
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = text;
+            sectionsContent.appendChild(link);
+          });
+
+          if (sectionsContent && sectionsContent.children.length === 0) {
+            sectionsDropdown.style.display = 'none';
+          } else if (sectionsDropbtn) {
+            sectionsDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              sectionsDropdown.classList.toggle('show');
+              sectionsDropbtn.classList.toggle('open');
+              if (sectionsArrow) {
+                sectionsArrow.classList.toggle('bi-chevron-down');
+                sectionsArrow.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
+      });
+    </script>
+  </body>

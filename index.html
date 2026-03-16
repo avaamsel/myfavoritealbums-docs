@@ -29,6 +29,11 @@
           <a href="user-reference.html">FAQs</a>
         </div>
       </li>
+      <li class="dropdown page-sections-dropdown">
+        <a href="#" class="dropbtn">On this page <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+        </div>
+      </li>
     </ul>
     </nav>
 
@@ -98,6 +103,70 @@
           arrowIcon.classList.toggle('bi-chevron-down');
           arrowIcon.classList.toggle('bi-chevron-right');
         });
+
+        const slugify = (text) =>
+          text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-');
+
+        document.querySelectorAll('h2').forEach((h2) => {
+          const text = h2.textContent.trim();
+          if (!text) return;
+
+          let baseId = slugify(text);
+          if (!baseId) return;
+
+          let uniqueId = baseId;
+          let counter = 2;
+          while (document.getElementById(uniqueId)) {
+            uniqueId = `${baseId}-${counter++}`;
+          }
+
+          if (!h2.id) {
+            h2.id = uniqueId;
+          }
+
+          const link = document.createElement('a');
+          link.href = `#${h2.id}`;
+          link.textContent = text;
+
+          h2.textContent = '';
+          h2.appendChild(link);
+        });
+
+        const sectionsDropdown = document.querySelector('.page-sections-dropdown');
+        if (sectionsDropdown) {
+          const sectionsDropbtn = sectionsDropdown.querySelector('.dropbtn');
+          const sectionsArrow = sectionsDropdown.querySelector('.arrow-icon');
+          const sectionsContent = sectionsDropdown.querySelector('.dropdown-content');
+          const h2Anchors = document.querySelectorAll('h2 a[href^="#"]');
+
+          h2Anchors.forEach((anchor) => {
+            const href = anchor.getAttribute('href');
+            const text = anchor.textContent.trim();
+            if (!href || !text || !sectionsContent) return;
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = text;
+            sectionsContent.appendChild(link);
+          });
+
+          if (sectionsContent && sectionsContent.children.length === 0) {
+            sectionsDropdown.style.display = 'none';
+          } else if (sectionsDropbtn) {
+            sectionsDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              sectionsDropdown.classList.toggle('show');
+              sectionsDropbtn.classList.toggle('open');
+              if (sectionsArrow) {
+                sectionsArrow.classList.toggle('bi-chevron-down');
+                sectionsArrow.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
       });
     </script>
   </body>
