@@ -84,33 +84,38 @@
               <li>
                 Access the RStudio terminal by clicking on the Terminal tab at the top of the bottom window.
               </li>
-              <!-- insert picture -->
+              <img src="public/terminal-tab.png" alt="Terminal Tab" style="max-width: 70%; height: auto;">
               <li>
                 In your terminal, verify that you are currently located in your Desktop directory. 
                 Your directory path should look something like this:
-                <!-- code snippet -->
-                 [device-name]:Desktop [user]$
+                <div class="code-box">
+                  [device-name]:Desktop [user]$
+                </div>
               </li>
               <li>
-                If you are not on your desktop, change your directory entering the following command into your terminal: 
-                <!-- code snippet -->
-                cd Desktop
+                If you are not on your desktop, change your directory by entering the following command into your terminal: 
+                <div class="code-box">
+                  cd ~/Desktop
+                </div>
               </li>
               <li>
                 Clone the MyFavoriteAlbums repository onto your device. 
-                <!-- code snippet -->
-                git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+                <div class="code-box">
+                  git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+                </div>
               </li>
               <li>
-                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the ls command. 
-                You should see the repository name, MyFavoriteAlbums, output in the list of your desktop contents if it has been cloned correctly.
-                <!-- code snippet -->
-                 ls Desktop
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the <span class="code">ls</span> command: 
+                <div class="code-box">
+                  ls Desktop
+                </div>
+                You should see the repository name, <span class="code">MyFavoriteAlbums</span>, output in the list of your desktop contents if it has been cloned correctly.
               </li>
               <li>
-                To download MyFavoriteAlbums’ required packages run the following command in your RStudio console:
-                <!-- code snippet -->
-                install.packages(c("shiny", "dplyr", "tidyverse"))
+                To download the packages required for MyFavoriteAlbums, run the following command in your RStudio console:
+                <div class="code-box">
+                  install.packages(c("shiny", "dplyr", "tidyverse"))
+                </div>
               </li>
             </ol>
           </div>

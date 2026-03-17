@@ -78,7 +78,7 @@
           <h2 id="setting-up-myfavoritealbums">Setting up MyFavoriteAlbums:</h2>
           <p>
             Setting up MyFavoriteAlbums on your computer requires you to have R and RStudio downloaded with the appropriate packages, 
-            as well as a shinyapps.io account. 
+            as well as a Shinyapps.io account. 
             You will also need to create a CSV file that contains your album rating information.
           </p>
 
@@ -95,7 +95,7 @@
           <div style="margin-left: 40px;">
             <h3>Creating a Shinyapps.io account:</h3>
             <p>
-              MyFavoriteAlbums requires you to have a shinyapps.io account in order to deploy the application with your own personalized album rating data. 
+              MyFavoriteAlbums requires you to have a Shinyapps.io account in order to deploy the application with your own personalized album rating data. 
               Follow the <a href="https://login.shinyapps.io/register?product=shinyapps&redirect=%2Foauth%2Fauthorize%3Fclient_id%3Drstudio-shinyapps%26redirect_uri%3Dhttps%253A%252F%252Fwww.shinyapps.io%252Fauth%252Foauth%252Ftoken%26response_type%3Dcode%26scopes%3D%252A%26show_auth%3D0" target="_blank">Shiny sign up instructions</a> 
               to create your account and your deployment URL.
             </p>
@@ -111,16 +111,15 @@
               <img src="public/terminal-tab.png" alt="Terminal Tab" style="max-width: 70%; height: auto;">
               <li>
                 In your terminal, verify that you are currently located in your Desktop directory. 
-                Your directory path should look something like this if you are:
+                Your directory path should look something like this:
                 <div class="code-box">
                   [device-name]:Desktop [user]$
                 </div>
               </li>
-              <!-- fix this step -->
               <li>
-                If you are not on your desktop, change your directory entering the change directory command into your terminal: 
+                If you are not on your desktop, change your directory by entering the following command into your terminal: 
                 <div class="code-box">
-                  cd Desktop
+                  cd ~/Desktop
                 </div>
               </li>
               <li>
@@ -130,11 +129,11 @@
                 </div>
               </li>
               <li>
-                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the list command (<span class="code">ls</span>). 
-                If the repository has been correctly cloned you should see the repository name, <span class="code">MyFavoriteAlbums</span>, output in the list of your desktop contents. 
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the list command, <span class="code">ls</span>:
                 <div class="code-box">
                   ls Desktop
                 </div>
+                If the repository has been correctly cloned you should see the repository name, <span class="code">MyFavoriteAlbums</span>, output in the list of your desktop contents. 
               </li>
             </ol>
           </div>
@@ -152,13 +151,13 @@
                 Within RStudio, open your console by clicking on the <b>Console</b> tab.
               </li>
               <li>
-                <b>To download shiny run:</b> <span class="code">install.packages("shiny")</span> 
+                To download shiny, run <span class="code">install.packages("shiny")</span> 
               </li>
               <li>
-                <b>To download dplyr run:</b> <span class="code">install.packages("dplyr")</span> 
+                To download dplyr, run <span class="code">install.packages("dplyr")</span> 
               </li>
               <li>
-                <b>To download ggplot2 run:</b> <span class="code">install.packages("tidyverse")</span>
+                To download ggplot2, run <span class="code">install.packages("tidyverse")</span>
               </li>
             </ol>
           </div>
@@ -178,7 +177,7 @@
               </li>
               <li>
                 Fill out the first seven cells in the top row of your spreadsheet containing the individual titles: 
-                Year, Ranking, Album, Artist, Rating, Vinyl, EP, and Live.
+                <b>Year, Ranking, Album, Artist, Rating, Vinyl, EP, and Live</b>.
               </li>
               <img src="public/user-tasks/create-csv/header.png" alt="Google Sheet Header" style="max-width: 80%; height: auto;">
               <li style="margin-top: 10px;">
@@ -196,7 +195,7 @@
                 </li>
                 <li>
                   <b style="color: #38761d;">Rating:</b> a numerical rating on a scale of 1-10, (1 is the worst rating and 10 is the highest rating), stored as an integer.
-                  Do not include decimal for fraction values.
+                  Do not include decimal or fraction values.
                 </li>
                 <li>
                   <b style="color: #38761d;">Vinyl:</b> if the album is owned on vinyl, indicated by including "v" in the cell.
@@ -225,7 +224,7 @@
               <img src="public/user-tasks/create-csv/sort.png" alt="Specialized Sorting Options" style="max-width: 40%; height: auto;">
               <li style="margin-top: 10px;">
                 An album’s ranking is your ranking of a given album in comparison to other albums from the same release year. 
-                Within your sorted data, go through each year and number your albums.
+                Within your sorted data, go through each year and rank your albums.
               </li>
               <ul>
                 <li>For years with only one album, number that album as 1.</li>
@@ -264,9 +263,10 @@
                 Copy the output to use in a later step.
               </li>
               <li>
-                Type the change directory command <span class="code">cd ..</span> until you are located on your Desktop.
-                <br/>
-                Your location is noted by <span class="code">[device-name]:Desktop [user]$</span> on your terminal.
+                To locate your Desktop directory, enter the following command:
+                <div class="code-box">
+                  cd ~/Desktop
+                </div>
               </li>
               <li>
                 Move your CSV file to the <b>Data</b> folder in MyFavoriteAlbums by typing the following command into your terminal:
@@ -278,7 +278,7 @@
               <li>
                 Open the <b>Data</b> folder and delete the <span class="code">albums-ranking.csv</span> file by selecting the check box next to file name and then clicking 
                 <img class="no-border" src="public/user-tasks/delete-icon.png" alt="Delete File" style="max-width: 4%; height: auto;">. 
-                Select <b>Yes</b> on the <b>Confirm delete</b> pop up. 
+                Select <b>Yes</b> on the <b>Confirm Delete</b> pop up. 
                 Your data folder should now only contain your music data file.
               </li>
               <li>
@@ -291,24 +291,88 @@
             </ol>
           </div>
 
-          <!-- deployment and publishing -->
+          <!-- deployment  -->
           <div style="margin-left: 40px;">
-            <h3>Deploying and Publishing MyFavoriteAlbums:</h3>
+            <h3>Deploying MyFavoriteAlbums:</h3>
             <p>
               MyFavoriteAlbums needs to be deployed in order for you to view your music data. 
-              Ensure that you have already created a shinyapps account.
+              Ensure that you have already created a Shinyapps account.
             </p>
 
             <ol>
               <li>
-
+                Log in to your Shinyapps account by going to <a href="https://login.shinyapps.io/login?redirect=%2Foauth%2Fauthorize%3Fclient_id%3Drstudio-shinyapps%26redirect_uri%3Dhttps%253A%252F%252Fwww.shinyapps.io%252Fauth%252Foauth%252Ftoken%26response_type%3Dcode%26scopes%3D%252A%26show_auth%3D0" target="_blank">shinyapps.io</a> 
+                and navigate to your Shinyapps dashboard by clicking on the <b>Dashboard</b> button in the left sidebar. 
+                If you have not deployed anything through Shiny yet, clicking the <b>Dashboard</b> button will take you to the <b>Getting Started</b> steps.
               </li>
+              <img src="public/user-tasks/dashboard.png" alt="Shinyapps Dashboard" style="max-width: 80%; height: auto;">
+              <li>
+                  In RStudio, navigate to your <b>Console</b> and enter the following command to install the <span class="code">rsconnect</span> package:
+                  <div class="code-box">
+                    install.packages("rsconnect")
+                  </div>
+                </li>
+                <li>
+                  Once you have installed the <span class="code">rsconnect</span> package, copy the code from <b>Getting Started step 2</b> and paste it into your console to authorize your Shinyapps account.
+                  <div class="code-box">
+                    rsconnect::setAccountInfo(name='[your Shinyapps account name]', 
+                    <br/>
+                    token='[your Shinyapps token]', 
+                    <br/>
+                    secret='[your Shinyapps secret]')
+                  </div>
+                </li>
+                <li>
+                  Once you have authorized your Shinyapps account, navigate to your RStudio terminal and enter the print working directory command (<span class="code">pwd</span>) 
+                  to get the path to the location of MyFavoriteAlbums on your computer.
+                  <div class="code-box">
+                    pwd
+                  </div>
+                  Copy the output to use in the next step.
+                </li>
+                <li>
+                  To deploy MyFavoriteAlbums, navigate back to your RStudio console and enter the following command:
+                  <div class="code-box">
+                    library(rsconnect)
+                    <br/>
+                    rsconnect::deployApp('[your copied output from step 4]')
+                  </div>
+                  In your console, you will see Shiny building and deploying all of the files for MyFavoriteAlbums. This may take a few minutes.
+                </li>
             </ol>
+            <img src="public/user-tasks/build-logs.png" alt="Shiny Deployment Build Logs" style="max-width: 70%; height: auto;">
+          </div>
+
+          <!-- publishing -->
+          <div style="margin-left: 40px;">
+            <h3>Publishing MyFavoriteAlbums:</h3>
+            <p>
+              Once MyFavoriteAlbums has been deployed, you need to publish it to your Shinyapps account.
+            </p>
+            <ol>
+              <li>
+                Open the <span class="code"></span>app.R</span> file in RStudio. 
+                Then click the <b>Publish</b> button. A popup window will appear that displays the files from MyFavoriteAlbums that will be published from your Shiny account.
+              </li>
+              <img src="public/user-tasks/publish-button.png" alt="Publish Button" style="max-width: 80%; height: auto;">
+              <li>
+                In the popup window, select the <b>Publish</b> button to confirm publishing MyFavoriteAlbums. 
+                RStudio will verify that all of your files successfully compile and publish.
+                Once RStudio completes its checks, your deployed version of MyFavoriteAlbums will open in a new browser window.
+              </li>
+              <ul>
+                <li>
+                  To revisit MyFavoriteAlbums in the future, you do not need to open RStudio. 
+                  You can simply enter your published MyFavoriteAlbums URL into your browser.
+                </li>
+              </ul>
+            </ol>
+            <img src="public/user-tasks/welcome.png" alt="Deployed MyFavoriteAlbums" style="max-width: 70%; height: auto;">
           </div>
         </div>
 
         <!-- number one albums tab -->
-        <div>
+        <div style="margin-top: 4%;">
           <h2 id="interacting-with-number-one-albums">Interacting with the Number One Albums Tab:</h2>
           <p>
             The <b>Number One Albums</b> tab allows you to view a list of your albums that have the highest rating for each year in an inputted range of years. 
@@ -368,7 +432,7 @@
         </div>
 
         <!-- top albums by year tab -->
-        <div>
+        <div style="margin-top: 4%;">
           <h2 id="interacting-with-top-albums-by-year">Interacting with the Top Albums By Year Tab:</h2>
           <p>
             The <b>Top Albums By Year</b> tab allows you to view a ranked list of all of your albums from a selected release year, 
