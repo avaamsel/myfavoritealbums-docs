@@ -20,8 +20,18 @@
     <nav class="sidebar">
     <ul>
       <li><a class="active" href="index.html">Home</a></li>
-      <li><a href="concept.html">Concept</a></li>
-      <li><a href="tasks.html">Tasks</a></li>
+      <li class="concept-dropdown">
+        <a class="inner-dropbtn concept-dropbtn" href="concept.html">
+          Conceptual Overview <i class="bi bi-chevron-right arrow-icon concept-arrow-icon"></i>
+        </a>
+        <div class="inner-dropdown-content">
+          <a href="concept.html#audience">Audience</a>
+          <a href="concept.html#what-is-myfavoritealbums">What is MyFavoriteAlbums?</a>
+          <a href="concept.html#software-architecture">Software Architecture</a>
+          <a href="concept.html#tools-and-environment">Tools and Environment</a>
+        </div>
+      </li>
+      <li><a href="tasks.html">Task Topics</a></li>
       <li class="dropdown">
         <a href="#" class="dropbtn">Reference <i class="bi bi-chevron-right arrow-icon"></i></a>
         <div class="dropdown-content">
@@ -37,45 +47,13 @@
     </ul>
     </nav>
 
-    <div style="margin-left:266px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
-      <h2>Full-height Vertical Navbar</h2>
-      <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-      <p>Notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
-      <p>Some text..</p>
+    <div style="margin-left:306px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+      <h1>Welcome to the MyFavoriteAlbums Documentation Set!</h1>
+      <p>This documentation set was written by Ava Nunes for <b>ENGL 396: Software Documentation</b>.</p>
+      <p>
+        MyFavoriteAlbums is a web application written by Chris Holstrom. 
+        The code referenced within this documentation set can be found in the <a href="https://github.com/UW-Example-Student/MyFavoriteAlbums" target="_blank">MyFavoriteAlbums GitHub repository</a>.
+      </p>
     </div>
 
     <script>
@@ -103,6 +81,31 @@
           arrowIcon.classList.toggle('bi-chevron-down');
           arrowIcon.classList.toggle('bi-chevron-right');
         });
+
+        const conceptDropdown = document.querySelector('.concept-dropdown');
+        if (conceptDropdown) {
+          const conceptDropbtn = conceptDropdown.querySelector('.concept-dropbtn');
+          const conceptArrowIcon = conceptDropdown.querySelector('.concept-arrow-icon');
+          if (currentPath === 'concept.html') {
+            conceptDropdown.classList.add('show');
+            if (conceptArrowIcon) {
+              conceptArrowIcon.classList.remove('bi-chevron-right');
+              conceptArrowIcon.classList.add('bi-chevron-down');
+            }
+          }
+          if (conceptDropbtn) {
+            conceptDropbtn.addEventListener('click', function(e) {
+              if (currentPath === 'concept.html') {
+                e.preventDefault();
+                conceptDropdown.classList.toggle('show');
+                if (conceptArrowIcon) {
+                  conceptArrowIcon.classList.toggle('bi-chevron-down');
+                  conceptArrowIcon.classList.toggle('bi-chevron-right');
+                }
+              }
+            });
+          }
+        }
 
         const slugify = (text) =>
           text

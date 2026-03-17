@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyFavoriteAlbums Docs</title>
+    <title>Conceptual Overview</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,9 +20,19 @@
     <nav class="sidebar">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="concept.html">Concept</a></li>
+      <li class="concept-dropdown">
+        <a class="active inner-dropbtn concept-dropbtn" href="concept.html">
+          Conceptual Overview <i class="bi bi-chevron-right arrow-icon concept-arrow-icon"></i>
+        </a>
+        <div class="inner-dropdown-content">
+          <a href="concept.html#audience">Audience</a>
+          <a href="concept.html#what-is-myfavoritealbums">What is MyFavoriteAlbums?</a>
+          <a href="concept.html#software-architecture">Software Architecture</a>
+          <a href="concept.html#tools-and-environment">Tools and Environment</a>
+        </div>
+      </li>
       <li class="dropdown tasks-dropdown">
-        <a href="#" class="dropbtn">Tasks <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <a href="#" class="dropbtn">Task Topics <i class="bi bi-chevron-right arrow-icon"></i></a>
         <div class="dropdown-content">
           <div class="inner-tasks-dropdown">
             <a class="inner-dropbtn" href="dev-tasks.html">
@@ -36,11 +46,6 @@
           <a href="user-tasks.html">Task Topics for Data-Curious Music Lovers</a>
         </div>
       </li>
-      <li class="dropdown page-sections-dropdown">
-        <a href="#" class="dropbtn">On this page <i class="bi bi-chevron-right arrow-icon"></i></a>
-        <div class="dropdown-content">
-        </div>
-      </li>
       <li class="dropdown reference-dropdown">
         <a href="#" class="dropbtn reference-dropbtn">Reference <i class="bi bi-chevron-right arrow-icon reference-arrow-icon"></i></a>
         <div class="dropdown-content">
@@ -51,26 +56,27 @@
     </ul>
     </nav>
 
-    <div style="margin-left:266px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+    <div style="margin-left:306px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
       <h1>Conceptual Overview</h1>
 
       <!-- audience section -->
       <div>
-        <h2>Audience</h2>
+        <h2 id="audience">Audience</h2>
+        <p>The MyFavoriteAlbums documentation set is intended for two audiences: <b>developers and data-curious music lovers</b>.</p>
         
-        <div>
-          <h4>Developers:</h4>
+        <div style="margin-left: 40px;">
+          <h3>Developers:</h3>
           <p>
-            This conceptual overview is intended for developers with very basic experience and understanding of the data analysis programming language, R, 
-            who have an interest in learning about and implementing new music-analysis features into MyFavoriteAlbums. 
-            Some familiarity using integrated development environments (IDEs) is assumed, as well as some familiarity with HTML web applications.
+            The MyFavoriteAlbums documentation set is intended for programmers with very basic experience and understanding of the data analysis programming language, R, 
+            who have an interest in learning about and implementing new music-analysis features and Functions into the MyFavoriteAlbums web application. 
+            Some familiarity using integrated development environments (IDEs) and git is assumed, as well as some familiarity with HTML web applications.
           </p>
         </div>
 
-        <div>
-          <h4>Data-Curious Music Lovers:</h4>
+        <div style="margin-left: 40px;">
+          <h3>Data-Curious Music Lovers:</h3>
           <p>
-            This conceptual overview is intended for Music Lovers with limited knowledge of R programming but have an interest 
+            The MyFavoriteAlbums documentation set is intended for Music Lovers with limited knowledge of R programming but have an interest 
             in utilizing the MyFavoriteAlbums software to interact with their own music data. 
             Music Lovers should have some comfort with dealing with files and the file system on their device.
           </p>
@@ -79,39 +85,40 @@
 
       <!-- what is myfavoritealbums section -->
       <div>
-        <h2>What is MyFavoriteAlbums?</h2>
+        <h2 id="what-is-myfavoritealbums" style="margin-top: 2%;">What is MyFavoriteAlbums?</h2>
         <p>
-          MyFavoriteAlbums is a streamlined web application that allows music lovers to interact with 
+          MyFavoriteAlbums is a streamlined web application that allows music loving users to interact with 
           statistics about their music album preferences, especially over a range of years. 
           MyFavoriteAlbums enables users to easily see patterns in their music and album preferences 
           through a simple, yet intuitive interface and graphical displays.
+          The MyFavoriteAlbums web application is organized into a series of tabs, each with a unique data analysis feature.
         </p>
 
         <div style="margin-left: 40px;">
           <h3>Key Features:</h3>
-          <ul>
+          <ul style="max-width: 90%;">
             <li>
-              Number One Albums: Users can specify a range of years and view a list of albums with the highest rating for each year in the range.
+              <b style="color: #38761d;">Number One Albums:</b> Users can specify a range of years and view a list of albums with the highest rating for each year in the range.
             </li>
             <li>
-              Top Albums By Year: Users can view a ranked list of all of their albums from a selected release year, 
+              <b style="color: #38761d;">Top Albums By Year:</b> Users can view a ranked list of all of their albums from a selected release year, 
               with the number one album being the highest rated.
             </li>
             <li>
-              Artists’ Albums: Users can view a list of information for specified artist’s albums, 
+              <b style="color: #38761d;">Artists’ Albums:</b> Users can view a list of information for specified artist’s albums, 
               including the total number of albums the user has ranked from the artist as well as the 
               average rating of all of the artist’s albums that have been ranked by the user.
             </li>
             <li>
-              Favorite Artists: Users can view a list of artists with a specified minimum number of 
+              <b style="color: #38761d;">Favorite Artists:</b> Users can view a list of artists with a specified minimum number of 
               rated albums who have the highest average rating given by the user. 
               Users also have the ability to exclude EPs and Live albums from the number of total albums artists have.
             </li>
             <li>
-              Artist Comparison: Users can compare the album ratings of two selected artists over a range of time.
+              <b style="color: #38761d;">Artist Comparison:</b> Users can compare the album ratings of two selected artists over a range of time.
             </li>
             <li>
-              Vinyl: Users can see their highest rated albums of a specified range that they do not own on vinyl.
+              <b style="color: #38761d;">Vinyl:</b> Users can see their highest rated albums of a specified range that they do not own on vinyl.
             </li>
           </ul>
         </div>
@@ -131,54 +138,17 @@
 
       <!-- software architecture section -->
       <div>
-        <h2>Software Architecture</h2>
-        
-        <!-- music data -->
-        <div style="margin-left: 40px;">
-          <h3>Music Data:</h3>
-          <p>
-            MyFavoriteAlbum’s data is stored as a CSV (comma separated value) file on the application’s backend 
-            that is interacted with by the application’s R code to perform data analysis. 
-          </p>
-
-          <p>
-            This CSV contains the following information formatted as columns:
-          </p>
-          <ul>
-            <li>
-              Album year
-            </li>
-            <li>
-              Album ranking
-            </li>
-            <li>
-              Album name
-            </li>
-            <li>
-              Artist
-            </li>
-            <li>
-              Album rating on a scale of 1-10 (1 is the worst rating, 10 is the highest rating)
-            </li>
-            <li>
-              If the album is owned on vinyl - indicated by a "v"
-            </li>
-            <li>
-              If the album is an EP (extended play) - indicated by an "EP"
-            </li>
-            <li>
-              If the album is live - indicated by a "live"
-            </li>
-          </ul>
-        </div>
+        <h2 id="software-architecture">Software Architecture</h2>
+        <p>The MyFavoriteAlbums web application is built using the R programming language and the Shiny framework, and consists of three main components: 
+          <b>R code, user interface, and music data</b>.</p>
 
         <!-- r code -->
         <div style="margin-left: 40px;">
           <h3>R Code:</h3>
           <p>
             MyFavoriteAlbums is an R based web application. 
-            The application’s server builds the MyFavoriteAlbums with HTML and creates 
-            the individual analysis function tabs that can be interacted with by the user. 
+            The application’s server builds MyFavoriteAlbums with HTML and creates 
+            the individual data analysis function tabs that can be interacted with by the user. 
           </p>
         </div>
 
@@ -186,49 +156,85 @@
         <div style="margin-left: 40px;">
           <h3>User Interface:</h3>
           <p>
-            MyFavoriteAlbums’ user interface works closely with the application’s server as well as the R package, 
-            shiny’s function fluidpage to specify the layout of the web page, 
-            allowing for the tab-based structure of the application.
+            The user interface for MyFavoriteAlbums works closely with the application’s server as well as the R package, 
+            <b style="color: #674ea7;">Shiny’s</b> function <b style="color: #674ea7;">fluidpage</b> to specify the layout of the application's web pages, 
+            which creates the tab-based structure of the application.
           </p>
+        </div>
+
+        <!-- music data -->
+        <div style="margin-left: 40px;">
+          <h3>Music Data:</h3>
+          <p>
+            The MyFavoriteAlbums’ music data is stored as a CSV (comma separated value) file on the application’s backend 
+            that is interacted with by the application’s R code to perform data analysis. 
+            This CSV file contains the following information formatted as columns:
+          </p>
+
+          <ul style="max-width: 90%;">
+            <li>
+              <b style="color: #38761d;">Album year:</b> the year the album was release, stored as an integer in YYYY format
+            </li>
+            <li>
+              <b style="color: #38761d;">Album ranking:</b> the ranking of the album in relation to the other rated albums in the year, stored as an integer starting from 1 for the highest rated album in the year
+            </li>
+            <li>
+              <b style="color: #38761d;">Album name:</b> the name of the album, stored as a string
+            </li>
+            <li>
+              <b style="color: #38761d;">Artist:</b> the name of the artist, stored as a string
+            </li>
+            <li>
+              <b style="color: #38761d;">Album rating:</b> a numerical rating on a scale of 1-10, (1 is the worst rating and 10 is the highest rating), stored as an integer
+            </li>
+            <li>
+              <b style="color: #38761d;">Vinyl:</b> if the album is owned on vinyl, indicated by including "v" in the column
+            </li>
+            <li>
+              <b style="color: #38761d;">EP:</b> if the album is an EP (extended play), indicated by including "EP" in the column
+            </li>
+            <li>
+              <b style="color: #38761d;">Live:</b> if the album is live, indicated by including "live" in the column
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- tools and environment section -->
       <div>
-        <h2>Tools and Environment</h2>
+        <h2 id="tools-and-environment">Tools and Environment</h2>
         <p>
-          MyFavoriteAlbums requires developers to have R and RStudio installed onto their device.
+          The MyFavoriteAlbums web application requires developers to have R and RStudio installed onto their device.
           Similarly, users who wish to view their personal music data on MyFavoriteAlbums will also need to install R and RStudio, 
           which can be downloaded by following the <a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop Downloading Instructions</a>.
         </p>
 
         <p>
-          The packages shiny, dplyr, and ggplot2 are required for MyFavoriteAlbums to properly run.
+          The packages <b style="color: #674ea7;">shiny, dplyr,</b> and <b style="color: #674ea7;">ggplot2</b> are required for MyFavoriteAlbums to properly run.
         </p>
         <ul>
           <li>
-            shiny: turns the R code into an interactive web application.
+            <b>shiny:</b> turns the R code into an interactive web application.
           </li>
 
           <li>
-            dplyr: helps to manipulate the given music data for statistical analysis.
+            <b>dplyr:</b> helps to manipulate the given music data for statistical analysis.
           </li>
 
           <li>
-            ggplot2: creates the visualization graphics for the given music rating data.
+            <b>ggplot2:</b> creates the visualization graphics for the given music rating data.
           </li>
         </ul>
 
         <div>
-          <h4>Data-Curious Music Lovers:</h4>
-
+          <!-- <h3>Creating a CSV File:</h3> -->
           <p>
-            Users who wish to view their own music data will need to create a CSV file containing this information. 
+            Music Lovers who wish to view their own music data will need to create a CSV file containing this information. 
             This can be done using tools like <a href="https://workspace.google.com/products/sheets/" target="_blank">Google Sheets</a>, <a href="https://excel.cloud.microsoft/" target="_blank">Excel</a>, or TextEdit (macOS). 
           </p>
 
           <p>
-            Users will also need to create a <a href="http://shinyapps.io" target="_blank">shinyapps.io</a> account in order to deploy their own version of MyFavoriteAlbums and view their own music data on the application.
+            Music Lovers will also need to create a <a href="http://shinyapps.io" target="_blank">shinyapps.io</a> account in order to deploy their own version of MyFavoriteAlbums  and view their own music data on the application.
           </p>
         </div>
       </div>
@@ -295,6 +301,33 @@
           }
         }
 
+        const conceptDropdown = document.querySelector('.concept-dropdown');
+        if (conceptDropdown) {
+          const conceptDropbtn = conceptDropdown.querySelector('.concept-dropbtn');
+          const conceptArrowIcon = conceptDropdown.querySelector('.concept-arrow-icon');
+
+          if (currentPath === 'concept.html') {
+            conceptDropdown.classList.add('show');
+            if (conceptArrowIcon) {
+              conceptArrowIcon.classList.remove('bi-chevron-right');
+              conceptArrowIcon.classList.add('bi-chevron-down');
+            }
+          }
+
+          if (conceptDropbtn) {
+            conceptDropbtn.addEventListener('click', function(e) {
+              if (currentPath === 'concept.html') {
+                e.preventDefault();
+                conceptDropdown.classList.toggle('show');
+                if (conceptArrowIcon) {
+                  conceptArrowIcon.classList.toggle('bi-chevron-down');
+                  conceptArrowIcon.classList.toggle('bi-chevron-right');
+                }
+              }
+            });
+          }
+        }
+
         const innerTasksDropdown = document.querySelector('.inner-tasks-dropdown');
         if (innerTasksDropdown) {
           const innerDropbtn = innerTasksDropdown.querySelector('.inner-dropbtn');
@@ -302,7 +335,6 @@
 
           if (innerDropbtn) {
             innerDropbtn.addEventListener('click', function(e) {
-              // Only toggle dropdown without navigation when already on dev-tasks.html
               if (currentPath === 'dev-tasks.html') {
                 e.preventDefault();
                 innerTasksDropdown.classList.toggle('show');
@@ -346,38 +378,6 @@
           h2.textContent = '';
           h2.appendChild(link);
         });
-
-        const sectionsDropdown = document.querySelector('.page-sections-dropdown');
-        if (sectionsDropdown) {
-          const sectionsDropbtn = sectionsDropdown.querySelector('.dropbtn');
-          const sectionsArrow = sectionsDropdown.querySelector('.arrow-icon');
-          const sectionsContent = sectionsDropdown.querySelector('.dropdown-content');
-          const h2Anchors = document.querySelectorAll('h2 a[href^="#"]');
-
-          h2Anchors.forEach((anchor) => {
-            const href = anchor.getAttribute('href');
-            const text = anchor.textContent.trim();
-            if (!href || !text || !sectionsContent) return;
-            const link = document.createElement('a');
-            link.href = href;
-            link.textContent = text;
-            sectionsContent.appendChild(link);
-          });
-
-          if (sectionsContent && sectionsContent.children.length === 0) {
-            sectionsDropdown.style.display = 'none';
-          } else if (sectionsDropbtn) {
-            sectionsDropbtn.addEventListener('click', function(e) {
-              e.preventDefault();
-              sectionsDropdown.classList.toggle('show');
-              sectionsDropbtn.classList.toggle('open');
-              if (sectionsArrow) {
-                sectionsArrow.classList.toggle('bi-chevron-down');
-                sectionsArrow.classList.toggle('bi-chevron-right');
-              }
-            });
-          }
-        }
       });
     </script>
   </body>
