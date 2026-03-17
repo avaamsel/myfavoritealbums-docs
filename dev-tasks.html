@@ -154,11 +154,11 @@
             </li>
             <img src="public/dev-tasks/new-script.png" alt="New File Button" style="max-width: 40%; height: auto;">
             <li>
-              In the create <b>“New File”</b> pop up box, name your new file <span class="code">chart.R</span> and click <b>OK</b>. Make sure the name of your new file is in lowercase.
+              In the <b>"Create a New File”</b> pop up box, name your new file <span class="code">chart.R</span> and click <b>OK</b>. Make sure the name of your new file is in lowercase.
             </li>
             <img src="public/dev-tasks/new-file.png" alt="New File Popup" style="max-width: 40%; height: auto;">
             <li>
-              Once you have named your file, navigate to <span class="code">app.R</span>. Locate the line <span class="code">source("fav_bands.R")</span> line, and paste the following code below it to define the UI layout and server functionality for your new function:
+              Once you have named your file, navigate to <span class="code">app.R</span>. Locate the line <span class="code">source("fav_bands.R")</span> and paste the following code below it to define the UI layout and server functionality for <span class="code">chart.R</span>:
               <div class="code-box">
                 source("chart.R")
               </div>
@@ -166,8 +166,11 @@
             <img src="public/dev-tasks/task1.png" alt="source("chart.R")" style="max-width: 50%; height: auto;">
             
             <li>
-              Fill out your newly created <span class="code">chart.R</span> file by creating the <span class="code">albums_by_year_chart</span> function with your desired functionality. Packages <b style="color: #674ea7;">dplyr</b> and <b style="color: #674ea7;">ggplot2</b> allow you to do statistical analysis on album data.
-              <pre class="code-box"><code>albums_by_year_chart <- function(album_data) {
+              Navigate to <span class="code">chart.R</span> and fill out the file by creating the <span class="code">albums_by_year_chart</span> function. Import the <span class="code">ggplot2</span> package to enable you to create a bar chart of the number of albums that were rated for each year in the data set.
+              Paste the following code into your <span class="code">chart.R</span> file:
+              <pre class="code-box"><code>library(ggplot2)
+
+albums_by_year_chart <- function(album_data) {
   # Count albums per year
   year_counts <- as.data.frame(table(album_data$Year))
   colnames(year_counts) <- c("Year", "Count")
@@ -196,11 +199,12 @@
 
   print(p)
 }</code></pre>
+                  
+                  <p style="margin-top: 20px;">When the <span class="code">albums_by_year_chart</span> function is pasted into your <span class="code">chart.R</span> file, it should look like this:</p>
                   <img src="public/dev-tasks/chart.png" alt="albums_by_year_chart" style="max-width: 60%; height: auto;">
                   <p style="margin-top: 10px;">
-                    The <span class="code">albums_by_year_chart</span> function creates a bar chart of the number of albums that were rated for each year in the data set.
-                    The function <span>year_counts</span> is a dataframe that contains the number of albums that were rated for each year in the data set.
-                    The bar chart is created using <span class="code">ggplot2</span> and creates a bar for each year in the data set that has an album rated.
+                    The <span class="code">albums_by_year_chart</span> function creates a bar chart of the number of albums that were rated for each year in the data set and stores it in the <span class="code">year_counts</span> dataframe.
+                    The bar chart is created using <span class="code">ggplot2</span> which creates a bar for each year in the data set that has an album rated.
                     The year with the most albums rated is highlighted in red.
                   </p>
               </li>
@@ -210,6 +214,8 @@
               <pre class="code-box"><code>output$year_chart <- renderPlot({
   albums_by_year_chart(album_data)
 })</code></pre>
+
+              <p style="margin-top: 20px;">When the <span class="code">output</span> code is pasted into your <span class="code">app_server.R</span> file, it should look like this:</p>
               <img src="public/dev-tasks/server.png" alt="Server code for chart.R tab" style="max-width: 50%; height: auto;">
               <p style="margin-top: 10px;">This code tell the server to render the bar chart used in <span class="code">chart.R</span>. The <span class="code">albums_by_year_chart</span> function is defined in <span class="code">chart.R</span> and the data from our CSV file is passed to the function as <span class="code">album_data</span>.</p>
               <ul style="margin-left: 16px;">
@@ -229,6 +235,8 @@
   "Year Chart",
   plotOutput("year_chart")
 )</code></pre>
+
+              <p style="margin-top: 20px;">When the <span class="code">tabPanel</span> code is pasted into your <span class="code">app_UI.R</span> file, it should look like this:</p>
               <img src="public/dev-tasks/ui.png" alt="UI code for chart.R tab" style="max-width: 70%; height: auto;">
               <p style="margin-top: 10px;">This code creates a new tab called <b>Year Chart</b> in MyFavoriteAlbums and displays the HTML output from the <span class="code">year_chart</span> object in the <span class="code">app_server.R</span> file.</p>
               <ul style="margin-left: 16px;">
@@ -259,7 +267,7 @@
           </ol>
           <img src="public/dev-tasks/year.png" alt="albums_by_year_chart" style="max-width: 70%; height: auto;">
           <p style="margin-top: 20px;">If you would like to explore more dplyr and ggplot functionality, check out the <a href="https://dplyr.tidyverse.org/" target="_blank">dplyr documentation</a>
-            and the <a href="https://ggplot2.tidyverse.org/" target="_blank">ggplot2 documentation</a> to learn about more ways you can use these packages to perform statistical analysis on your album ratingdata.</p>
+            and the <a href="https://ggplot2.tidyverse.org/" target="_blank">ggplot2 documentation</a> to learn about more ways you can use these packages to perform statistical analysis on your album rating data.</p>
         </div>
       </div>
     </div>
