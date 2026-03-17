@@ -43,7 +43,20 @@
               <a href="#adding-new-functions-to-myfavoritealbums">Adding New Functions</a>
             </div>
           </div>
-          <a href="user-tasks.html">Task Topics for Data-Curious Music Lovers</a>
+          <div class="inner-tasks-dropdown">
+            <a class="inner-dropbtn" href="user-tasks.html">
+              Task Topics for Data-Curious Music Lovers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="user-tasks.html#setting-up-myfavoritealbums">Setting up MyFavoriteAlbums</a>
+              <a href="user-tasks.html#interacting-with-number-one-albums">Number One Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-top-albums-by-year">Top Albums By Year Tab</a>
+              <a href="user-tasks.html#interacting-with-artists-albums">Artists’ Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-favorite-artists">Favorite Artists Tab</a>
+              <a href="user-tasks.html#interacting-with-artist-comparison">Artist Comparison Tab</a>
+              <a href="user-tasks.html#interacting-with-vinyl">Vinyl Tab</a>
+            </div>
+          </div>
         </div>
       </li>
       <li class="dropdown reference-dropdown">
@@ -56,7 +69,7 @@
     </ul>
     </nav>
 
-    <div style="margin-left:306px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+    <div style="margin-left:336px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
       <div>
         <h1>Task Topics for Developers:</h1>
 
@@ -223,32 +236,33 @@
           }
         }
 
-        const innerTasksDropdown = document.querySelector('.inner-tasks-dropdown');
-        if (innerTasksDropdown) {
-          const innerDropbtn = innerTasksDropdown.querySelector('.inner-dropbtn');
-          const innerArrowIcon = innerTasksDropdown.querySelector('.inner-dropbtn .arrow-icon');
+        document.querySelectorAll('.inner-tasks-dropdown').forEach((innerDropdown) => {
+          const innerDropbtn = innerDropdown.querySelector('.inner-dropbtn');
+          const innerArrowIcon = innerDropdown.querySelector('.inner-dropbtn .arrow-icon');
+          if (!innerDropbtn) return;
 
-          if (currentPath === 'dev-tasks.html') {
-            innerTasksDropdown.classList.add('show');
+          const innerHref = innerDropbtn.getAttribute('href') || '';
+          const innerPath = innerHref.split('/').pop();
+
+          if (innerPath === currentPath) {
+            innerDropdown.classList.add('show');
             if (innerArrowIcon) {
               innerArrowIcon.classList.remove('bi-chevron-right');
               innerArrowIcon.classList.add('bi-chevron-down');
             }
           }
 
-          if (innerDropbtn) {
-            innerDropbtn.addEventListener('click', function(e) {
-              if (currentPath === 'dev-tasks.html') {
-                e.preventDefault();
-                innerTasksDropdown.classList.toggle('show');
-                if (innerArrowIcon) {
-                  innerArrowIcon.classList.toggle('bi-chevron-down');
-                  innerArrowIcon.classList.toggle('bi-chevron-right');
-                }
+          innerDropbtn.addEventListener('click', function(e) {
+            if (innerPath === currentPath) {
+              e.preventDefault();
+              innerDropdown.classList.toggle('show');
+              if (innerArrowIcon) {
+                innerArrowIcon.classList.toggle('bi-chevron-down');
+                innerArrowIcon.classList.toggle('bi-chevron-right');
               }
-            });
-          }
-        }
+            }
+          });
+        });
 
         const slugify = (text) =>
           text

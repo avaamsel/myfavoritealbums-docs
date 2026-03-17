@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyFavoriteAlbums Docs</title>
+    <title>Task Topics</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -43,7 +43,20 @@
               <a href="dev-tasks.html#adding-new-functions-to-myfavoritealbums">Adding New Functions</a>
             </div>
           </div>
-          <a class="active" href="user-tasks.html">Task Topics for Data-Curious Music Lovers</a>
+          <div class="inner-tasks-dropdown">
+            <a class="active inner-dropbtn" href="user-tasks.html">
+              Task Topics for Data-Curious Music Lovers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="user-tasks.html#setting-up-myfavoritealbums">Setting up MyFavoriteAlbums</a>
+              <a href="user-tasks.html#interacting-with-number-one-albums">Number One Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-top-albums-by-year">Top Albums By Year Tab</a>
+              <a href="user-tasks.html#interacting-with-artists-albums">Artists’ Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-favorite-artists">Favorite Artists Tab</a>
+              <a href="user-tasks.html#interacting-with-artist-comparison">Artist Comparison Tab</a>
+              <a href="user-tasks.html#interacting-with-vinyl">Vinyl Tab</a>
+            </div>
+          </div>
         </div>
       </li>
       <li class="dropdown reference-dropdown">
@@ -56,13 +69,13 @@
     </ul>
     </nav>
 
-    <div style="margin-left:306px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+    <div style="margin-left:336px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
       <div>
         <h1>Task Topics for Data-Curious Music Lovers:</h1>
 
         <!-- setting up myfavalbums -->
         <div>
-          <h2>Setting up MyFavoriteAlbums:</h2>
+          <h2 id="setting-up-myfavoritealbums">Setting up MyFavoriteAlbums:</h2>
           <p>
             Setting up MyFavoriteAlbums on your computer requires you to have R and RStudio downloaded with the appropriate packages, 
             as well as a shinyapps.io account. 
@@ -73,7 +86,7 @@
           <div style="margin-left: 40px;">
             <h3>Downloading R and RStudio:</h3>
             <p>
-              To download R and RStudio follow the <a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop Downloading Instructions</a> 
+              To download R and RStudio follow the <a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop downloading instructions</a> 
               and download the versions of R and RStudio that are compatible with your computer.
             </p>
           </div>
@@ -82,41 +95,46 @@
           <div style="margin-left: 40px;">
             <h3>Creating a Shinyapps.io account:</h3>
             <p>
-              MyFavoriteAlbums requires that you have a shinyapps.io account in order to deploy the application with your own personalized album rating data. 
-              Follow the <a href="https://login.shinyapps.io/register?product=shinyapps&redirect=%2Foauth%2Fauthorize%3Fclient_id%3Drstudio-shinyapps%26redirect_uri%3Dhttps%253A%252F%252Fwww.shinyapps.io%252Fauth%252Foauth%252Ftoken%26response_type%3Dcode%26scopes%3D%252A%26show_auth%3D0" target="_blank">shiny sign up instructions</a> 
+              MyFavoriteAlbums requires you to have a shinyapps.io account in order to deploy the application with your own personalized album rating data. 
+              Follow the <a href="https://login.shinyapps.io/register?product=shinyapps&redirect=%2Foauth%2Fauthorize%3Fclient_id%3Drstudio-shinyapps%26redirect_uri%3Dhttps%253A%252F%252Fwww.shinyapps.io%252Fauth%252Foauth%252Ftoken%26response_type%3Dcode%26scopes%3D%252A%26show_auth%3D0" target="_blank">Shiny sign up instructions</a> 
               to create your account and your deployment URL.
             </p>
           </div>
 
           <!-- downloading codebase -->
           <div style="margin-left: 40px;">
-            <h3>Downloading the MyFavoriteAlbums CodeBase:</h3>
+            <h3>Downloading the MyFavoriteAlbums Code Base:</h3>
             <ol>
               <li>
-                Access the RStudio terminal by clicking on the Terminal tab at the top of the bottom window.
+                Access the RStudio terminal by clicking on the <b>Terminal</b> tab at the top of the bottom window.
               </li>
-              <!-- insert image -->
+              <img src="public/terminal-tab.png" alt="Terminal Tab" style="max-width: 70%; height: auto;">
               <li>
                 In your terminal, verify that you are currently located in your Desktop directory. 
                 Your directory path should look something like this if you are:
-                <!-- code snippet -->
-                 [device-name]:Desktop [user]$
+                <div class="code-box">
+                  [device-name]:Desktop [user]$
+                </div>
               </li>
+              <!-- fix this step -->
               <li>
                 If you are not on your desktop, change your directory entering the change directory command into your terminal: 
-                <!-- code snippet -->
-                 cd Desktop
+                <div class="code-box">
+                  cd Desktop
+                </div>
               </li>
               <li>
                 Clone the MyFavoriteAlbums repository onto your device by entering the following command:
-                <!-- code snippet -->
-                 git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+                <div class="code-box">
+                  git clone https://github.com/UW-Example-Student/MyFavoriteAlbums.git
+                </div>
               </li>
               <li>
-                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the list command (ls). 
-                You should see the repository name, MyFavoriteAlbums, output in the list of your desktop contents if it has been cloned correctly. 
-                <!-- code snippet -->
-                 ls Desktop
+                Verify that the MyFavoriteAlbums repository was correctly cloned onto your desktop by using the list command (<span class="code">ls</span>). 
+                If the repository has been correctly cloned you should see the repository name, <span class="code">MyFavoriteAlbums</span>, output in the list of your desktop contents. 
+                <div class="code-box">
+                  ls Desktop
+                </div>
               </li>
             </ol>
           </div>
@@ -125,22 +143,22 @@
           <div style="margin-left: 40px;">
             <h3>Downloading the Required Packages for MyFavoriteAlbums:</h3>
             <p>
-              MyFavoriteAlbums utilizes three R packages: shiny, dplyr, and ggplot2. 
+              MyFavoriteAlbums utilizes three R packages: <b style="color: #674ea7;">shiny, dplyr,</b> and <b style="color: #674ea7;">ggplot2</b>. 
               These packages are used to create the applications layouts and perform analysis on inputted music data.
             </p>
 
             <ol>
               <li>
-                Within RStudio, open your console by clicking on the console tab.
+                Within RStudio, open your console by clicking on the <b>Console</b> tab.
               </li>
               <li>
-                To download shiny run: install.packages("shiny") 
+                <b>To download shiny run:</b> <span class="code">install.packages("shiny")</span> 
               </li>
               <li>
-                To download dplyr run: install.packages("dplyr") 
+                <b>To download dplyr run:</b> <span class="code">install.packages("dplyr")</span> 
               </li>
               <li>
-                To download ggplot2 run: install.packages("tidyverse")
+                <b>To download ggplot2 run:</b> <span class="code">install.packages("tidyverse")</span>
               </li>
             </ol>
           </div>
@@ -162,33 +180,65 @@
                 Fill out the first seven cells in the top row of your spreadsheet containing the individual titles: 
                 Year, Ranking, Album, Artist, Rating, Vinyl, EP, and Live.
               </li>
-              <!-- insert image -->
-              <li>
+              <img src="public/user-tasks/create-csv/header.png" alt="Google Sheet Header" style="max-width: 80%; height: auto;">
+              <li style="margin-top: 10px;">
                 Add your album data to your spreadsheet, skipping over the ranking column.
               </li>
-              <!-- this section has a bunch of indented stuff -->
+              <ul>
+                <li>
+                  <b style="color: #38761d;">Year:</b> the year the album was released, stored as an integer in YYYY format.
+                </li>
+                <li>
+                  <b style="color: #38761d;">Album:</b> the name of the album, stored as a string.
+                </li>
+                <li>
+                  <b style="color: #38761d;">Artist:</b> the name of the artist who created the album, stored as a string.
+                </li>
+                <li>
+                  <b style="color: #38761d;">Rating:</b> a numerical rating on a scale of 1-10, (1 is the worst rating and 10 is the highest rating), stored as an integer.
+                  Do not include decimal for fraction values.
+                </li>
+                <li>
+                  <b style="color: #38761d;">Vinyl:</b> if the album is owned on vinyl, indicated by including "v" in the cell.
+                  If the album is not owned on vinyl, leave the cell blank.
+                </li>
+                <li>
+                  <b style="color: #38761d;">EP:</b> if the album is an EP (extended play), indicated by including "EP" in the cell.
+                  If the album is not an EP, leave the cell blank.
+                </li>
+                <li>
+                  <b style="color: #38761d;">Live:</b> if the album is live, indicated by including "live" in the cell.
+                  If the album is not live, leave the cell blank.
+                </li>
+              </ul>
               <li>
                 To sort your album data by release year, select all of your inputted data minus the column titles, 
-                then navigate to Data > Sort range > Advanced sorting options. 
+                then navigate to <b>Data > Sort range > Advanced sorting options</b>. 
                 A modal pops up allowing you to customize your sorting parameters. 
               </li>
-              <!-- insert image -->
-              <li>
-                Keep the default sorting option to sort your albums chronologically by their release year. 
-                Click Add another sort column. 
-                Select Column E in the column drop down and sort by Z to A, then click Sort.
+              <img src="public/user-tasks/create-csv/advanced-sort.png" alt="Advanced Sorting Options" style="max-width: 55%; height: auto;">
+              <li style="margin-top: 10px;">
+                To sort your albums chronologically by their release year, keep the default sorting option. 
+                Click <b>Add another sort column</b>. 
+                Then, select <b>Column E</b> in the column drop down and sort by <b>Z to A</b>. Finally, click <b>Sort</b>.
               </li>
-              <!-- insert image -->
-              <li>
+              <img src="public/user-tasks/create-csv/sort.png" alt="Specialized Sorting Options" style="max-width: 40%; height: auto;">
+              <li style="margin-top: 10px;">
                 An album’s ranking is your ranking of a given album in comparison to other albums from the same release year. 
                 Within your sorted data, go through each year and number your albums.
               </li>
-              <!-- this section also has a bunch of indented points -->
+              <ul>
+                <li>For years with only one album, number that album as 1.</li>
+                <li>
+                  For years with multiple albums, your highest rated album is listed as the first album for the year. 
+                  Number these albums in increasing order: 1, 2, 3, 4…
+                </li>
+              </ul>
               <li>
-                Export your music data as a CSV to your computer by navigating to File > Download > Comma Separated Values (.csv). 
+                Export your music data as a CSV to your computer by navigating to <b>File > Download > Comma Separated Values (.csv)</b>. 
                 Ensure this CSV file has been downloaded to your computer’s desktop.
               </li>
-              <!-- insert image -->
+              <img src="public/user-tasks/create-csv/export.png" alt="Download CSV File" style="max-width: 40%; height: auto;">
             </ol>
           </div>
 
@@ -202,38 +252,41 @@
 
             <ol>
               <li>
-                Open RStudio and navigate to the Files side panel to open the MyFavoriteAlbums folder.
+                Open RStudio and navigate to the <b>Files</b> side panel to open the MyFavoriteAlbums folder.
               </li>
               <li>
-                After clicking on the MyFavoriteAlbums folder, open the Data folder.
+                After clicking on the MyFavoriteAlbums folder, open the <b>Data</b> folder.
               </li>
-              <!-- insert image -->
+              <img src="public/user-tasks/data-folder.png" alt="Data Folder" style="max-width: 34%; height: auto;">
               <li>
-                Open up your RStudio terminal by clicking the terminal tab, and enter the print working directory command (pwd) into your terminal. 
-                The pwd command outputs your current location on your computer. 
-                Copy the output to use later.
-              </li>
-              <li>
-                Type the change directory command cd .. until you are located on your Desktop. 
-                Your location is noted by [device-name]:Desktop [user]$ on your terminal.
+                Open up your RStudio terminal by clicking the <b>Terminal</b> tab, and enter the print working directory command (<span class="code">pwd</span>) into your terminal. 
+                The <span class="code">pwd</span> command outputs your current location on your computer. 
+                Copy the output to use in a later step.
               </li>
               <li>
-                Move your CSV file to the Data folder in MyFavoriteAlbums by typing the following command into your terminal:
-                <!-- code snippet -->
-                mv [your CSV file name].csv [output copied from step 3]
-                <!-- break -->
-                The albums-ranking.csv should now be in the Data folder along with your own CSV file.
+                Type the change directory command <span class="code">cd ..</span> until you are located on your Desktop.
+                <br/>
+                Your location is noted by <span class="code">[device-name]:Desktop [user]$</span> on your terminal.
               </li>
-              <!-- this step has an inline image -->
               <li>
-                Open the Data folder and delete the albums-ranking.csv file by selecting the check box next to file name and then clicking  . 
-                Select Yes on the confirm delete pop up. 
+                Move your CSV file to the <b>Data</b> folder in MyFavoriteAlbums by typing the following command into your terminal:
+                <div class="code-box">
+                  mv [your CSV file name].csv [output copied from step 3]
+                </div>
+                The <span class="code">albums-ranking.csv</span> should now be in the <b>Data</b> folder along with your own CSV file.
+              </li>
+              <li>
+                Open the <b>Data</b> folder and delete the <span class="code">albums-ranking.csv</span> file by selecting the check box next to file name and then clicking 
+                <img class="no-border" src="public/user-tasks/delete-icon.png" alt="Delete File" style="max-width: 4%; height: auto;">. 
+                Select <b>Yes</b> on the <b>Confirm delete</b> pop up. 
                 Your data folder should now only contain your music data file.
               </li>
               <li>
-                While in the data directory in your terminal, rename the album-ratings.csv file in order for MyFavoriteAlbums to recognize it:
-                <!-- code snippet -->
-                mv [your CSV file name].csv album-ratings.csv
+                While in the <span class="code">/data</span> directory in your terminal, rename the <span class="code">album-ratings.csv</span> file in order for MyFavoriteAlbums to recognize it:
+                <div class="code-box">
+                  mv [your CSV file name].csv album-ratings.csv
+                </div>
+                Your CSV file should now be renamed to be <span class="code">album-ratings.csv</span>.
               </li>
             </ol>
           </div>
@@ -256,112 +309,147 @@
 
         <!-- number one albums tab -->
         <div>
-          <h2>Interacting with the Number One Albums Tab:</h2>
+          <h2 id="interacting-with-number-one-albums">Interacting with the Number One Albums Tab:</h2>
           <p>
-            The Number One Albums tab allows you to view a list of your albums that have the highest rating for each year in an inputted range of years. 
+            The <b>Number One Albums</b> tab allows you to view a list of your albums that have the highest rating for each year in an inputted range of years. 
             There is a slider that you can drag to shrink or expand the range of years you wish to see your number one albums for.
           </p>
-          <!-- insert image -->
+          <img src="public/user-tasks/number-one.png" alt="Number One Albums Tab" style="max-width: 40%; height: auto;">
 
           <!-- modifying date range -->
           <div style="margin-left: 40px;">
-            <h3>Modifying the Date Range on the Number One Albums Tab:</h3>
-            <p>To modify the range of years on the Number One Albums tab’s slider, open the app_ui.R file in RStudio.</p>
+            <h3>Modifying the Date Range on the <i>Number One Albums</i> Tab:</h3>
+            <p>To modify the range of years on the <b>Number One Albums</b> tab’s slider, open the <span class="code">app_ui.R</span> file in RStudio.</p>
 
             <ol>
               <li>
-                Locate this code that generates the UI for the tab. 
-                The line starting with sliderInput creates the range of years slider.
+                Locate the following code that generates the UI for the tab. 
+                The line starting with <span class="code">sliderInput</span> creates the range of years slider.
               </li>
-              <!-- insert image -->
+              <div class="code-box">
+                  tabPanel("Number One Albums",
+                  <br/>
+                  htmlOutput("text3"),
+                  <br/>
+                  sliderInput("rng", "Choose the Years", value = c(1993, 1998), min = 1993, max = 2024, sep = ""),
+                  <br/>
+                  tableOutput("number_one_table)),
+              </div>
               <li>
-                Modify the range that is displayed by replacing min = 1993 your oldest rated album’s year, 
-                and replacing max = 2024 with your newest rated album’s year.
+                Modify the year range that is displayed on the slider by replacing all instances of <span class="code" style="background-color: #ffe599;">1993</span> with the release year of your oldest rated album, 
+                and replacing all instances of <span class="code" style="background-color: pink;">2024</span> with the release year of your newest rated album. Also replace <span style="background-color: #a4c2f4;">1998</span>
+                with a year that is between 5-10 years after the release year of your oldest rated album to ensure there is an appropriate default year range.
               </li>
-              <!-- insert image -->
+              <div class="code-box">
+                tabPanel("Number One Albums",
+                <br/>
+                htmlOutput("text3"),
+                <br/>
+                sliderInput("rng", "Choose the Years", value = c(<span style="background-color: #ffe599;">1993</span>, <span style="background-color: #a4c2f4;">1998</span>), min = <span style="background-color: #ffe599;">1993</span>, max = <span style="background-color: pink;">2024</span>, sep = ""),
+                <br/>
+                tableOutput("number_one_table)),
+            </div>
+              <div class="code-box">
+                tabPanel("Number One Albums",
+                <br/>
+                htmlOutput("text3"),
+                <br/>
+                sliderInput("rng", "Choose the Years", value = c(<span style="background-color: #ffe599;">1963</span>, <span style="background-color: #a4c2f4;">1971</span>), min = <span style="background-color: #ffe599;">1963</span>, max = <span style="background-color: pink;">2025</span>, sep = ""),
+                <br/>
+                tableOutput("number_one_table)),
+            </div>
               <li>
                 To have your changes be reflected in the deployed version of MyFavoriteAlbums, 
-                navigate to app.R after saving and click Republish.
+                navigate to <span class="code">app.R</span> after saving and click <b>Republish</b>.
               </li>
-              <!-- insert image -->
             </ol>
+            <img src="public/user-tasks/year-number-one.png" alt="app_ui.R file" style="max-width: 40%; height: auto;">
           </div>
         </div>
 
         <!-- top albums by year tab -->
         <div>
-          <h2>Interacting with the Top Albums By Year Tab:</h2>
+          <h2 id="interacting-with-top-albums-by-year">Interacting with the Top Albums By Year Tab:</h2>
           <p>
-            The Top Albums By Year tab allows you to view a ranked list of all of your albums from a selected release year, 
+            The <b>Top Albums By Year</b> tab allows you to view a ranked list of all of your albums from a selected release year, 
             with the number one album being the highest rated.
           </p>
-          <!-- insert image -->
+          <img src="public/user-tasks/top-albums.png" alt="Top Albums By Year Tab" style="max-width: 40%; height: auto;">
         </div>
 
         <!-- artists' albums tab -->
-        <div>
-          <h2>Interacting with the Artists’ Albums Tab:</h2>
+        <div style="margin-top: 4%;">
+          <h2 id="interacting-with-artists-albums">Interacting with the Artists’ Albums Tab:</h2>
           <p>
-            The Artists’ Albums tab allows you to view a list of information for specified artist’s albums, 
+            The <b>Artists’ Albums</b> tab allows you to view a list of information for specified artist’s albums, 
             including the total number of albums you have ranked from the specified artist 
             as well as the average rating of all of the artist’s albums. 
             The output albums are sorted increasingly by their release year.
           </p>
-          <!-- insert image -->
+          <img src="public/user-tasks/albums.png" alt="Artists' Albums Tab" style="max-width: 40%; height: auto;">
         </div>
 
         <!-- favorite artists tab -->
-        <div>
-          <h2>Interacting with the Favorite Artists Tab:</h2>
+        <div style="margin-top: 4%;">
+          <h2 id="interacting-with-favorite-artists">Interacting with the Favorite Artists Tab:</h2>
           <p>
-            The Favorite Artists tab allows you to view a list of artists with a specified minimum number of albums. 
+            The <b>Favorite Artists</b> tab allows you to view a list of artists with a specified minimum number of albums. 
             You also have the ability to exclude EPs and Live albums from the number of albums artists have. 
-            Outputted artists are sorted in decreasing order by their average rating, 
+            The outputted artists are sorted in decreasing order by their average rating, 
             with the first artist in the list being your highest rated.
           </p>
-          <!-- insert image -->
+          <img src="public/user-tasks/fav-artists.png" alt="Favorite Artists Tab" style="max-width: 36%; height: auto;">
         </div>
 
         <!-- artist comparison tab -->
-        <div>
-          <h2>Interacting with the Artist Comparison Tab:</h2>
+        <div style="margin-top: 4%;">
+          <h2 id="interacting-with-artist-comparison">Interacting with the Artist Comparison Tab:</h2>
           <p>
-            The Artist Comparison tab allows you to compare the album ratings of two selected artists over a range of time. 
-            The first band’s ratings over time is marked with a red line and the second band’s ratings over time is marked with a blue line.
+            The <b>Artist Comparison</b> tab allows you to compare the album ratings of two selected artists over a range of time. 
+            The first artist’s ratings over time is marked with a <b style="color: red;">red</b> line and the second artist’s ratings over time is marked with a <b style="color: blue;">blue</b> line.
           </p>
-          <!-- insert image -->
+          <img src="public/user-tasks/compare.png" alt="Artist Comparison Tab" style="max-width: 50%; height: auto;">
 
           <!-- modifying date rage -->
           <div style="margin-left: 40px;">
-            <h3>Modifying the Date Range on the Artist Comparison Tab:</h3>
-            <p>To modify the range of years on the Number One Albums tab’s slider, open the compare_bands.R file in RStudio.</p>
+            <h3>Modifying the Date Range on the <i>Artist Comparison</i> Tab:</h3>
+            <p>To modify the range of years on the <b>Number One Albums</b> tab’s slider, open the <span class="code">compare_bands.R</span> file in RStudio.</p>
             <ol>
               <li>
-                Locate the ggplot function that creates the plot for this tab. 
+                Locate the <span class="code">ggplot()</span> function that creates the plot for this tab. 
               </li>
-              <!-- insert image -->
-              <li>
-                Modify the range that is displayed on the plot by replacing the values highlighted in yellow 
-                with the release year of your oldest rated album and the values highlighted in pink 
+              <img src="public/user-tasks/compare-code.png" alt="ggplot() function" style="max-width: 70%; height: auto;">
+              <li style="margin-top: 10px;">
+                Modify the year range that is displayed on the plot by replacing the values highlighted in <span style="background-color: #ffe599;">yellow</span> 
+                with the release year of your oldest rated album and the values highlighted in <span style="background-color: pink;">pink</span> 
                 with the release year of your newest rated album:
-                <!-- code snippets -->
-                scale_x_continuous(breaks=seq(1993,2024,1))
-                expand_limits(x=c(1993,2024), y=c(0,10))
+                <div class="code-box">
+                  <span>scale_x_continuous(breaks=seq(<span style="background-color: #ffe599;">1993</span>,<span style="background-color: pink;">2024</span>,1))</span>
+                  <br/>
+                  <span>expand_limits(x=c(<span style="background-color: #ffe599;">1993</span>,<span style="background-color: pink;">2024</span>), y=c(0,10))</span> 
+                </div>
+
+                <div class="code-box">
+                  <span>scale_x_continuous(breaks=seq(<span style="background-color: #ffe599;">1963</span>,<span style="background-color: pink;">2025</span>,1))</span>
+                  <br/>
+                  <span>expand_limits(x=c(<span style="background-color: #ffe599;">1963</span>,<span style="background-color: pink;">2025</span>), y=c(0,10))</span> 
+                </div>
+                
                 <!-- insert imahe -->
               </li>
               <li>
                 To have your changes be reflected in the deployed version of MyFavoriteAlbums, 
-                navigate to app.R after saving and click Republish.
+                navigate to <span class="code">app.R</span> after saving and click <b>Republish</b>.
               </li>
             </ol>
           </div>
         </div>
 
         <!-- vinyl tab -->
-        <div>
+        <div style="margin-top: 3%;">
           <h2>Interacting with the Vinyl Tab:</h2>
-          <p>The Vinyl tab allows you to view your highest rated albums of a specified range that you do not own on vinyl.</p>
-          <!-- insert picture -->
+          <p>The <b>Vinyl</b> tab allows you to view your highest rated albums of a specified range that you do not own on vinyl.</p>
+          <img src="public/user-tasks/vinyl.png" alt="Vinyl Tab" style="max-width: 40%; height: auto;">
         </div>
       </div>
     </div>
@@ -452,24 +540,33 @@
           }
         }
 
-        const innerTasksDropdown = document.querySelector('.inner-tasks-dropdown');
-        if (innerTasksDropdown) {
-          const innerDropbtn = innerTasksDropdown.querySelector('.inner-dropbtn');
-          const innerArrowIcon = innerTasksDropdown.querySelector('.inner-dropbtn .arrow-icon');
+        document.querySelectorAll('.inner-tasks-dropdown').forEach((innerDropdown) => {
+          const innerDropbtn = innerDropdown.querySelector('.inner-dropbtn');
+          const innerArrowIcon = innerDropdown.querySelector('.inner-dropbtn .arrow-icon');
+          if (!innerDropbtn) return;
 
-          if (innerDropbtn) {
-            innerDropbtn.addEventListener('click', function(e) {
-              if (currentPath === 'dev-tasks.html') {
-                e.preventDefault();
-                innerTasksDropdown.classList.toggle('show');
-                if (innerArrowIcon) {
-                  innerArrowIcon.classList.toggle('bi-chevron-down');
-                  innerArrowIcon.classList.toggle('bi-chevron-right');
-                }
-              }
-            });
+          const innerHref = innerDropbtn.getAttribute('href') || '';
+          const innerPath = innerHref.split('/').pop();
+
+          if (innerPath === currentPath) {
+            innerDropdown.classList.add('show');
+            if (innerArrowIcon) {
+              innerArrowIcon.classList.remove('bi-chevron-right');
+              innerArrowIcon.classList.add('bi-chevron-down');
+            }
           }
-        }
+
+          innerDropbtn.addEventListener('click', function(e) {
+            if (innerPath === currentPath) {
+              e.preventDefault();
+              innerDropdown.classList.toggle('show');
+              if (innerArrowIcon) {
+                innerArrowIcon.classList.toggle('bi-chevron-down');
+                innerArrowIcon.classList.toggle('bi-chevron-right');
+              }
+            }
+          });
+        });
 
         const slugify = (text) =>
           text

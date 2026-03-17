@@ -31,9 +31,36 @@
           <a href="concept.html#tools-and-environment">Tools and Environment</a>
         </div>
       </li>
-      <li><a href="tasks.html">Task Topics</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Reference <i class="bi bi-chevron-right arrow-icon"></i></a>
+      <li class="dropdown tasks-dropdown">
+        <a href="#" class="dropbtn">Task Topics <i class="bi bi-chevron-right arrow-icon"></i></a>
+        <div class="dropdown-content">
+          <div class="inner-tasks-dropdown">
+            <a class="inner-dropbtn" href="dev-tasks.html">
+              Task Topics for Developers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="dev-tasks.html#setting-up-the-myfavoritealbums-tech-stack">Setting up the Tech Stack</a>
+              <a href="dev-tasks.html#adding-new-functions-to-myfavoritealbums">Adding New Functions</a>
+            </div>
+          </div>
+          <div class="inner-tasks-dropdown">
+            <a class="inner-dropbtn" href="user-tasks.html">
+              Task Topics for Data-Curious Music Lovers <i class="bi bi-chevron-right arrow-icon"></i>
+            </a>
+            <div class="inner-dropdown-content">
+              <a href="user-tasks.html#setting-up-myfavoritealbums">Setting up MyFavoriteAlbums</a>
+              <a href="user-tasks.html#interacting-with-number-one-albums">Number One Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-top-albums-by-year">Top Albums By Year Tab</a>
+              <a href="user-tasks.html#interacting-with-artists-albums">Artists’ Albums Tab</a>
+              <a href="user-tasks.html#interacting-with-favorite-artists">Favorite Artists Tab</a>
+              <a href="user-tasks.html#interacting-with-artist-comparison">Artist Comparison Tab</a>
+              <a href="user-tasks.html#interacting-with-vinyl">Vinyl Tab</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="dropdown reference-dropdown">
+        <a href="#" class="dropbtn reference-dropbtn">Reference <i class="bi bi-chevron-right arrow-icon reference-arrow-icon"></i></a>
         <div class="dropdown-content">
           <a href="dev-reference.html">API Reference</a>
           <a href="user-reference.html">FAQs</a>
@@ -47,7 +74,7 @@
     </ul>
     </nav>
 
-    <div style="margin-left:306px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
+    <div style="margin-left:336px;margin-right:60px;padding:1px 16px 80px 16px;max-width:1200px;">
       <h1>Welcome to the MyFavoriteAlbums Documentation Set!</h1>
       <p>This documentation set was written by Ava Nunes for <b>ENGL 396: Software Documentation</b>.</p>
       <p>
@@ -58,29 +85,31 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const dropdown = document.querySelector('.dropdown');
-        const dropbtn = document.querySelector('.dropbtn');
-        const arrowIcon = document.querySelector('.arrow-icon');
         const currentPath = window.location.pathname.split('/').pop();
+        const referenceDropdown = document.querySelector('.reference-dropdown');
+        const referenceDropbtn = document.querySelector('.reference-dropbtn');
+        const referenceArrowIcon = document.querySelector('.reference-arrow-icon');
         if (currentPath === 'dev-reference.html' || currentPath === 'user-reference.html') {
-          dropdown.classList.add('show');
-          dropbtn.classList.add('open');
-          arrowIcon.classList.remove('bi-chevron-right');
-          arrowIcon.classList.add('bi-chevron-down');
-          const links = dropdown.querySelectorAll('.dropdown-content a');
+          referenceDropdown.classList.add('show');
+          referenceDropbtn.classList.add('open');
+          referenceArrowIcon.classList.remove('bi-chevron-right');
+          referenceArrowIcon.classList.add('bi-chevron-down');
+          const links = referenceDropdown.querySelectorAll('.dropdown-content a');
           links.forEach(link => {
             if (link.getAttribute('href') === currentPath) {
               link.classList.add('active');
             }
           });
         }
-        dropbtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          dropdown.classList.toggle('show');
-          dropbtn.classList.toggle('open');
-          arrowIcon.classList.toggle('bi-chevron-down');
-          arrowIcon.classList.toggle('bi-chevron-right');
-        });
+        if (referenceDropbtn) {
+          referenceDropbtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            referenceDropdown.classList.toggle('show');
+            referenceDropbtn.classList.toggle('open');
+            referenceArrowIcon.classList.toggle('bi-chevron-down');
+            referenceArrowIcon.classList.toggle('bi-chevron-right');
+          });
+        }
 
         const conceptDropdown = document.querySelector('.concept-dropdown');
         if (conceptDropdown) {
@@ -106,6 +135,67 @@
             });
           }
         }
+
+        const taskDropdown = document.querySelector('.dropdown.tasks-dropdown');
+        if (taskDropdown) {
+          const taskDropbtn = taskDropdown.querySelector('.dropbtn');
+          const taskArrowIcon = taskDropdown.querySelector('.arrow-icon');
+
+          if (taskDropbtn && (currentPath === 'dev-tasks.html' || currentPath === 'user-tasks.html')) {
+            taskDropdown.classList.add('show');
+            taskDropbtn.classList.add('open');
+            if (taskArrowIcon) {
+              taskArrowIcon.classList.remove('bi-chevron-right');
+              taskArrowIcon.classList.add('bi-chevron-down');
+            }
+            const taskLinks = taskDropdown.querySelectorAll('.dropdown-content a');
+            taskLinks.forEach(link => {
+              if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+              }
+            });
+          }
+
+          if (taskDropbtn) {
+            taskDropbtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              taskDropdown.classList.toggle('show');
+              taskDropbtn.classList.toggle('open');
+              if (taskArrowIcon) {
+                taskArrowIcon.classList.toggle('bi-chevron-down');
+                taskArrowIcon.classList.toggle('bi-chevron-right');
+              }
+            });
+          }
+        }
+
+        document.querySelectorAll('.inner-tasks-dropdown').forEach((innerDropdown) => {
+          const innerDropbtn = innerDropdown.querySelector('.inner-dropbtn');
+          const innerArrowIcon = innerDropdown.querySelector('.inner-dropbtn .arrow-icon');
+          if (!innerDropbtn) return;
+
+          const innerHref = innerDropbtn.getAttribute('href') || '';
+          const innerPath = innerHref.split('/').pop();
+
+          if (innerPath === currentPath) {
+            innerDropdown.classList.add('show');
+            if (innerArrowIcon) {
+              innerArrowIcon.classList.remove('bi-chevron-right');
+              innerArrowIcon.classList.add('bi-chevron-down');
+            }
+          }
+
+          innerDropbtn.addEventListener('click', function(e) {
+            if (innerPath === currentPath) {
+              e.preventDefault();
+              innerDropdown.classList.toggle('show');
+              if (innerArrowIcon) {
+                innerArrowIcon.classList.toggle('bi-chevron-down');
+                innerArrowIcon.classList.toggle('bi-chevron-right');
+              }
+            }
+          });
+        });
 
         const slugify = (text) =>
           text
